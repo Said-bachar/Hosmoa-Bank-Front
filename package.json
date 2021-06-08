@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -20,7 +20,9 @@
     "@angular/platform-browser-dynamic": "~11.2.4",
     "@angular/router": "~11.2.4",
     "bootstrap": "^5.0.1",
+    "font-awesome": "^4.7.0",
     "rxjs": "~6.6.0",
+    "select2": "^4.1.0-rc.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
