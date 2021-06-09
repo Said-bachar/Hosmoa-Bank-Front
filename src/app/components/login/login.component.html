@@ -1,39 +1,78 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <div class="login100-pic" data-tilt>
-                <img src="assets/HosmoaBank_home_en.png" alt="IMG">
+            <div class="login100-pic">
+                <img src="assets/HosmoaBank_home_en.png" alt="HosmoaBank">
             </div>
-
-            <form class="login100-form ">
+            <form [formGroup]="loginForm" class="login100-form ">
                 <span class="login100-form-title">
                     <strong>Client Login</strong> 
                 </span>
 
                 <div class="wrap-input100 has-validation" >
-                    <input class="input100" type="text" name="email" placeholder="Email" required>
+                    <input formControlName="username" ngModel class="input100" name="username" type="text" name="email" placeholder="Email" required 
+                    [ngClass]="{
+                        'invalide':
+                            loginForm.get('username').touched 
+                            && 
+                            loginForm.get('username').errors?.required
+                        }">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </span>
+                    
+                    <span *ngIf="loginForm.get('username').touched 
+                        && 
+                        loginForm.get('username').errors?.required"
+                    >
+                       <i class="symbol-error fa fa-exclamation" aria-hidden="true"></i>
+                    </span>
                 </div>
-                <div class="error">
+                <div class="error" *ngIf="loginForm.get('username').touched && loginForm.get('username').errors?.required">
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
                     Please choose a username.
                 </div>
 
-                <div class="wrap-input100">
-                    <input class="input100" type="password" name="pass" placeholder="Password" required>
+                <div class="wrap-input100" >
+                    <input formControlName="password" 
+                    ngModel 
+                    class="input100" 
+                    name="password" 
+                    type="password" 
+                    name="pass" 
+                    placeholder="Password" 
+                    required 
+                    [ngClass]="{
+                        'invalide':loginForm.get('password').invalid  
+                        && (
+                            loginForm.get('password').touched 
+                            &&
+                            loginForm.get('password').errors?.required)
+                        }"
+                    >
                     <span class="focus-input100"></span>
+                    <span *ngIf="loginForm.get('password').touched 
+                        && 
+                        loginForm.get('password').errors?.required"
+                    >
+                       <i class="symbol-error fa fa-exclamation" aria-hidden="true"></i>
+                    </span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="error">
+                <div class="error" *ngIf="loginForm.get('password').touched && loginForm.get('password').errors?.required" >
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
                     Please choose a password.
                 </div>
                 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
+                    <button class="login100-form-btn" [disabled]="loginForm.invalid">
                         Login
                     </button>
                 </div>

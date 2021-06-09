@@ -285,6 +285,30 @@
     -moz-transition: all 0.4s;
     transition: all 0.4s;
   }
+  .symbol-error{
+    font-size: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    float: right;
+    border-radius: 25px;
+    bottom: 0;
+    left: 82%;
+    width: 100%;
+    height: 100%;
+    padding-left: 35px;
+    pointer-events: none;
+    color: red;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
   
   .input100:focus + .focus-input100 + .symbol-input100 {
     color: #57b846;
@@ -343,6 +367,9 @@
     margin-left:20px;
     margin-bottom:10px;
   }
+  .invalide{
+    border: solid 1.5px #dc3545;
+  }
   
   /*------------------------------------------------------------------
   [ Responsive ]*/
@@ -360,6 +387,9 @@
   
     .login100-form {
       width: 50%;
+    }
+    .symbol-error{
+      left: 85%;
     }
   }
   
