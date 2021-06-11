@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-navbar',
@@ -6,12 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-navbar.component.css']
 })
 export class ClientNavbarComponent implements OnInit {
-  isActive="";
-  constructor() { }
+  constructor(private router : Router) {
+    
+   }
 
   ngOnInit(): void {
   }
   changeActive(nav_item:string){
-    this.isActive=nav_item;
+    // console.log(this.router.url.slice(1,this.router.url.length))
+    // this.isActive=nav_item;
+  }
+  get url(){
+    return this.router.url;
   }
 }
