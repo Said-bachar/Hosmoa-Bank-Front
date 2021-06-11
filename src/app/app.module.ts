@@ -7,7 +7,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ClientNavbarComponent } from './components/partials/client-navbar/client-navbar.component';
+
 import { TransferComponent } from './components/transfer/transfer.component';
+
+import { AccountsComponent } from './components/accounts/accounts.component';
+import { ClientAgentComponent } from './components/client-agent/client-agent.component';
+import { ClientProfileComponent } from './components/client-profile/client-profile.component';
+
 
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatButtonModule } from "@angular/material/button";
@@ -45,11 +51,17 @@ import { TransferHistoryComponent } from './components/transfer-history/transfer
     LoginComponent,
     HomeComponent,
     ClientNavbarComponent,
+
     TransferComponent,
     NotificationComponent,
     DashboardComponent,
     TransferFormComponent,
-    TransferHistoryComponent
+    TransferHistoryComponent,
+
+    AccountsComponent,
+    ClientAgentComponent,
+    ClientProfileComponent
+
   ],
   imports: [
     BrowserModule,

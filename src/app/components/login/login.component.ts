@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClientAuthService } from 'src/app/services/client-auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ClientAuthService } from 'src/app/services/client-auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private clientAuth:ClientAuthService) { }
+  constructor(private clientAuth:ClientAuthService,private router:Router) { }
   loginForm=new FormGroup({
     username:new FormControl('',Validators.required),
     password:new FormControl('',Validators.required)
@@ -19,5 +20,6 @@ export class LoginComponent implements OnInit {
   login(){
     console.log(this.loginForm.value)
     // this.clientAuth.login
+    this.router.navigateByUrl('/')
   }
 }

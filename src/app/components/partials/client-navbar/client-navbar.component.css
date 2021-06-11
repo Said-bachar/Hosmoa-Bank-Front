@@ -7,16 +7,41 @@
 .nav-active a{
 	color:#29A3DD;
 }
-/* .nav-item{
-	
-} */
 .nav-item{
 	margin-right: 18px;
 }
 .navbar-collapse{
 	margin-left: 40px;
 }
-@media all and (max-width:700px)  {
+
+
+@media all and (max-width:1240px)  {
+	.nav-link{
+		font-size: 14px;
+	}
+}
+@media all and (max-width:1150px)  {
+	.nav-link{
+		font-size: 12px;
+	}
+}
+@media all and (max-width:1160px)  {
+	.nav-link{
+		font-size: 11px;
+	}
+}
+@media all and (max-width:1020px)  {
+	.nav-link{
+		font-size: 10px;
+	}
+	.navbar-collapse{
+		margin-left: 0px;
+	}
+}
+@media all and (max-width:980px)  {
+	.nav-link{
+		font-size: 12px;
+	}
 	.navbar-collapse{
 		margin-left: 0px;
 	}
