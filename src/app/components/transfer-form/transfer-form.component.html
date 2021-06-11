@@ -1,0 +1,60 @@
+<!-- Credit card form content -->
+<div class="tab-content">
+    <!-- credit card info-->
+    <div id="credit-card" class="tab-pane fade show active pt-3">
+        <form role="form" onsubmit="event.preventDefault()">
+            <div class="form-group"> <label for="username">
+                    <h4>Debit account (<span style="color:red;">*</span>)</h4>
+                </label> <select class="form-control" style="text-align:center;" id="ccmonth">
+                    <option selected disabled> -------------------- Choose -------------------- </option>
+                    <option>Account 1</option>
+                    <option>Account 2</option>
+                    <option>Account 3</option>
+                    <option>Account 4</option>
+                   
+            </select> 
+        </div>
+            
+           
+              <label class="control-label mt-4" for="Select Your Bank">
+                    <h4>Select the benefeciary account (<span style="color:red;">*</span>)</h4>
+                </label>
+            <div class="input-group mb-3">
+                 
+                <select class="form-control" id="ccmonth">
+                        <option value="" style="text-align:center;"  selected disabled> --Please select benefeciary account-- </option>
+                        <option>Account 1</option>
+                        <option>Account 2</option>
+                        <option>Account 3</option>
+                        <option>Account 4</option>
+                       
+                </select>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary" style="margin-left: 15px;" type="button">New benefeciary</button>
+                </div>
+            </div>
+
+            <div class="form-group"> <label for="cardNumber">
+                <h4>Amount (<span style="color:red;">*</span>)</h4>
+               </label>
+               <div class="input-group"> <input type="text" name="cardNumber" placeholder="Amount..." class="form-control " required>
+               </div>
+           </div>
+           <div class="form-group"> <label class="mt-4" for="cardNumber">
+                <h4>Pattern(<span style="color:red;">*</span>)</h4>
+                </label>
+               <div class="input-group"> <input type="text" name="cardNumber" placeholder="Motif..." class="form-control " required>
+               </div>
+           </div>
+           <div class="form-group">
+            <label for="creationDate" class="mt-4"><h4>Creation date</h4></label>
+            <div class="input-group">
+              <input class="form-control" type="date" value="Ex : 2021-08-19" id="creationDate">
+            </div>
+          </div>
+              
+            <div class="card-footer mt-2"><button type="button" class="subscribe btn btn-color btn-block shadow-sm"> Confirm Payment </button></div>
+            <div class=""><h4 style="color:red;">(<span>*</span>) : required</h4></div>
+        </form>
+    </div>
+</div>
