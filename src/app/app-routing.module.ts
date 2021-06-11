@@ -1,3 +1,4 @@
+import { RechargeFormComponent } from './components/recharge-form/recharge-form.component';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,7 +12,9 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'transfer',component:TransferComponent},
   {path:'',component:HomeComponent,canActivate:[AuthGuard]},
-  {path:'dashboard',component:DashboardComponent}
+  {path:'dashboard',component:DashboardComponent},
+  {path:'recharge',component:RechargeFormComponent},
+  {path:'profile',component:ClientProfileComponent,canActivate:[AuthGuard]}
 
 
 
