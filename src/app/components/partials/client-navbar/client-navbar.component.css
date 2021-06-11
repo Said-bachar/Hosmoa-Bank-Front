@@ -16,7 +16,7 @@
 .navbar-collapse{
 	margin-left: 40px;
 }
-@media all and (max-width:700px)  {
+@media all and (max-width:1000px)  {
 	.navbar-collapse{
 		margin-left: 0px;
 	}

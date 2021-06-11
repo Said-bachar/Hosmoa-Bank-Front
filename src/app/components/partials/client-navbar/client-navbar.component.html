@@ -8,25 +8,25 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item d-flex"  [ngClass]="{'nav-active':isActive==='Virements'}">
+                <li class="nav-item d-flex"  [ngClass]="{'nav-active':isActive==='V'}">
                     <img src="../../../../assets/virement.png" height="20px" width="20px" alt="" class="mt-2">
-                    <a class="nav-link " (click)="changeActive('Virements')" aria-current="page" routerLink="#"><strong>Virements</strong></a>
+                    <a class="nav-link " (click)="changeActive('V')" aria-current="page" routerLink="#"><strong>Virements</strong></a>
                 </li>
-                <li class="nav-item d-flex" [ngClass]="{'nav-active':isActive==='Carte Prépayée'}">
+                <li class="nav-item d-flex" [ngClass]="{'nav-active':isActive==='C'}">
                     <img src="../../../../assets/recharge_carte.png" height="20px" width="20px" alt="" class="mt-2">
-                    <a class="nav-link" (click)="changeActive('Carte Prépayée')"  routerLink="#"><strong>Carte Prépayée</strong></a>
+                    <a class="nav-link" (click)="changeActive('C')"  routerLink="#"><strong>Carte Prépayée</strong></a>
                 </li>
-                <li class="nav-item d-flex" [ngClass]="{'nav-active':isActive==='Paiment Factures'}">
+                <li class="nav-item d-flex" [ngClass]="{'nav-active':isActive==='P'}">
                     <img src="../../../../assets/paiement_factures.png" height="20px" width="20px" alt="" class="mt-2">
-                    <a class="nav-link" (click)="changeActive('Paiment Factures')"  routerLink="#"><strong>Paiment Factures</strong></a>
+                    <a class="nav-link" (click)="changeActive('P')"  routerLink="#"><strong>Paiment Factures</strong></a>
                 </li>
-                <li class="nav-item d-flex" [ngClass]="{'nav-active':isActive==='Recharge Télécom'}">
+                <li class="nav-item d-flex" [ngClass]="{'nav-active':isActive==='R'}">
                     <img src="../../../../assets/releve_bancaire.png" height="20px" width="20px" alt="" class="mt-2">
-                    <a class="nav-link" (click)="changeActive('Recharge Télécom')"  routerLink="#"><strong>Recharge Télécom</strong></a>
+                    <a class="nav-link" (click)="changeActive('R')"  routerLink="#"><strong>Recharge Télécom</strong></a>
                 </li>
-                <li class="nav-item d-flex ml-auto" [ngClass]="{'nav-active':isActive==='client'}">
-                    <img src="../../../../assets/releve_bancaire.png" height="20px" width="20px" alt="" class="mt-2">
-                    <a class="nav-link" (click)="changeActive('client')"  routerLink="#"><strong><i>Bienvenue</i> Haitham OUMERZOUG</strong></a>
+                <li class="nav-item d-flex ml-auto" [ngClass]="{'nav-active':isActive==='cl'}">
+                    <a class="nav-link" (click)="changeActive('cl')"  routerLink="#"><strong><i>Bienvenue</i> Haitham OUMERZOUG</strong></a>
+                    <img src="../../../../assets/notifications.png" height="20px" width="20px" alt="" class="mt-2">
                 </li>
             </ul>
         </div>
