@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ClientNavbarComponent } from './components/partials/client-navbar/client-navbar.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { ClientAgentComponent } from './components/client-agent/client-agent.component';
+import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ClientAgentComponent } from './components/client-agent/client-agent.com
     HomeComponent,
     ClientNavbarComponent,
     AccountsComponent,
-    ClientAgentComponent
+    ClientAgentComponent,
+    ClientProfileComponent
   ],
   imports: [
     BrowserModule,
