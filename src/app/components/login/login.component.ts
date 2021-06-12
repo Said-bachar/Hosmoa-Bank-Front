@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private clientAuth:ClientAuthService,private router:Router) { }
   ngOnDestroy(): void {
     document.body.style.backgroundImage="url('')";
-    document.body.style.backgroundColor="none"
   }
   loginForm=new FormGroup({
     username:new FormControl('',Validators.required),
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     document.body.style.backgroundImage="url('../../../../assets/welcome.svg')";
     document.body.style.backgroundSize="cover";
-    document.body.style.backgroundAttachment="fixed"
+    document.body.style.backgroundAttachment="fixed";
   }
   login(){
     console.log(this.loginForm.value)
