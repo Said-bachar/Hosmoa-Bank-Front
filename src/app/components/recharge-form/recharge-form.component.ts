@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-recharge-form',
@@ -8,12 +7,15 @@ import { FormGroup } from '@angular/forms';
 })
 export class RechargeFormComponent implements OnInit {
    
-  
-
-
+  credentialsVerified = false;
+ 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  
+  next() {
+    this.credentialsVerified = true;
   }
 
 }
