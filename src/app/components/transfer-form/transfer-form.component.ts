@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./transfer-form.component.css']
 })
 export class TransferFormComponent implements OnInit,OnDestroy {
-  transfers:Array<any>=[{
-    account:'',
-    benefeciary:'',
-    amount:0
-  }];
-  amount;
-  transferForm;
+  transfers=new FormArray([
+    new FormGroup({
+      ownerSelectedAccount:new FormControl(''),
+      benefeciarySelectedAccont:new FormControl(''),
+      pattern:new FormControl(''),
+      amount:new FormControl('')
+    })
+  ])
   constructor() {
     // this.transferForm=new FormGroup({
     //   account:new FormControl(''),
@@ -29,13 +30,18 @@ export class TransferFormComponent implements OnInit,OnDestroy {
     document.body.style.backgroundColor='#29A3DD'
   }
   addTransferForm(){
-    this.transfers.push({})
+    this.transfers.push(new FormGroup({
+      ownerSelectedAccount:new FormControl(''),
+      benefeciarySelectedAccont:new FormControl(''),
+      pattern:new FormControl(''),
+      amount:new FormControl('')
+    }))
   }
   
-  deletecommandeform(index){
-    if(this.transfers.length>1) this.transfers.splice(index,1)
-  }
+  // deletecommandeform(index){
+  //   if(this.transfers.length>1) this.transfers.splice(index,1)
+  // }
   showData(){
-    console.log(this.amount)
+    console.log(this.transfers.controls.values)
   }
 }
