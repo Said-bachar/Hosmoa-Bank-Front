@@ -16,13 +16,13 @@ export class TransferComponent implements OnInit ,OnDestroy{
 
   constructor() { }
   ngOnDestroy(): void {
-    document.body.style.backgroundImage="url('')";
+    // document.body.style.backgroundImage="url('')";
   }
 
   ngOnInit(): void {
-    document.body.style.backgroundImage="url('../../../../assets/background.svg')";
-    document.body.style.backgroundSize="cover";
-    document.body.style.backgroundAttachment="fixed"
+    // document.body.style.backgroundImage="url('../../../../assets/background.svg')";
+    // document.body.style.backgroundSize="cover";
+    // document.body.style.backgroundAttachment="fixed"
   }
 
   changeActive(nav_item:string){

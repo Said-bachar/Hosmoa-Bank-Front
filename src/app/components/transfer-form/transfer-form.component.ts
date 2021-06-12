@@ -31,7 +31,7 @@ export class TransferFormComponent implements OnInit,OnDestroy {
   }
   addTransferForm(){
     this.transfers.push(new FormGroup({
-      ownerSelectedAccount:new FormControl(''),
+      ownerSelectedAccount:new FormControl(),
       benefeciarySelectedAccont:new FormControl(''),
       pattern:new FormControl(''),
       amount:new FormControl('')
