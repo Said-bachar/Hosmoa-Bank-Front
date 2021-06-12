@@ -4,7 +4,7 @@
     </a><br>
     <div id="transfer" class="tab-pane fade show active pt-3 mt-5" *ngFor="let transfer of transfers.controls;let i = index">
         <div class="container mb-2" [formGroup]="transfers.controls[i]">
-            <div class="x-btn" style="cursor: pointer"  (click)="deletecommandeform(i)"><img style="width:20px; height:20px" src="../../../assets/close1.png" alt=""></div>
+            <div class="x-btn" *ngIf="transfers.length>1" style="cursor: pointer"  (click)="deletecommandeform(i)"><img style="width:20px; height:20px" src="../../../assets/close1.png" alt=""></div>
             <div class="form-group mt-2"> 
                 <label for="username">
                     <h4>Debit account (<span style="color:red;">*</span>)</h4>
@@ -55,15 +55,17 @@
                     <input class="form-control" type="date" value="Ex : 2021-08-19" id="creationDate">
                 </div>
             </div> -->
-            <hr class="hr-class">  
+             
         </div>   
-        <div class="card-footer mt-2">
-            <button type="button" class="subscribe btn btn-color btn-block shadow-sm"> 
-                Confirm Payment 
-            </button>
-        </div>
         <div class="">
             <h4 style="color:red;">(<span>*</span>) : required</h4>
         </div> 
+        <hr class="hr-class"> 
     </div>   
+    <div class="card-footer mt-2">
+        <button type="button" class="subscribe btn btn-color btn-block shadow-sm"> 
+            Confirm Payment 
+        </button>
+    </div>
+    
 </div>
