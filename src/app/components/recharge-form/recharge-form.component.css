@@ -49,8 +49,19 @@
   padding: 10%;
   margin-top: 10%;
 }
-.btnRegister{
-  float: right;
+.btnNext{
+  border: none;
+  border-radius: 1.5rem;
+  background: #29A3DD;
+  color: #fff;
+  font-weight: 600;
+  width: 20%;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  outline:none;
+}
+.btnPred{
   border: none;
   border-radius: 1.5rem;
   background: #29A3DD;
@@ -99,7 +110,7 @@
   float: right;
   border: none;
   border-radius: 1.5rem;
-  background: #29A3DD;
+  background: #E95314;
   color: #fff;
   font-weight: 600;
   width: 20%;
