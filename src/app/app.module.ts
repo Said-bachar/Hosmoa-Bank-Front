@@ -14,7 +14,6 @@ import { AccountsComponent } from './components/accounts/accounts.component';
 import { ClientAgentComponent } from './components/client-agent/client-agent.component';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 
-
 import { NotificationComponent } from './components/notification/notification.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TransferFormComponent } from './components/transfer-form/transfer-form.component';
@@ -45,11 +44,11 @@ import { RechargesComponent } from './components/recharges/recharges.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    
     ReactiveFormsModule
     
   ],
-  providers: [ ],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
