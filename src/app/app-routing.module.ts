@@ -7,9 +7,11 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AgentLoginComponent } from './components/agent-login/agent-login.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
+  {path:'Agentlogin',component:AgentLoginComponent},
   {path:'transfer',component:TransferComponent},
   {path:'',component:HomeComponent,canActivate:[AuthGuard]},
   {path:'dashboard',component:DashboardComponent},
