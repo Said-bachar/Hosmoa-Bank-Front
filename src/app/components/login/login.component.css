@@ -177,18 +177,19 @@
   /*------------------------------------------------------------------
   [  ]*/
   .login100-pic {
-    padding-top: 20px;
     width: 400px;
   }
   
   .login100-pic img {
     max-width: 100%;
+    margin-top: px;
   }
   
   
   /*------------------------------------------------------------------
   [  ]*/
   .login100-form {
+    margin-top: 10%;
     width: 320px;
   }
   
@@ -376,17 +377,18 @@
   
   
   
-  @media (max-width: 992px) {
+  @media (max-width: 998px) {
     .wrap-login100 {
-      padding: 177px 90px 33px 85px;
+      padding: 100px 90px 100px 85px;
     }
-  
     .login100-pic {
-      width: 35%;
+      width: 40%;
+      
     }
   
     .login100-form {
       width: 50%;
+      margin-top: 0%;
     }
     .symbol-error{
       left: 85%;

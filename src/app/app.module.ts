@@ -93,7 +93,7 @@ import { RechargesComponent } from './components/recharges/recharges.component';
     MatPaginatorModule,
     MatBadgeModule,
     MatExpansionModule,
-    
+    ReactiveFormsModule
     
   ],
   providers: [

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -6,7 +6,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   templateUrl: './transfer.component.html',
   styleUrls: ['./transfer.component.css']
 })
-export class TransferComponent implements OnInit {
+export class TransferComponent implements OnInit ,OnDestroy{
   
   isActive="T";
   isShowed:boolean = true;
@@ -15,8 +15,14 @@ export class TransferComponent implements OnInit {
   
 
   constructor() { }
+  ngOnDestroy(): void {
+    document.body.style.backgroundImage="url('')";
+  }
 
   ngOnInit(): void {
+    document.body.style.backgroundImage="url('../../../../assets/background.svg')";
+    document.body.style.backgroundSize="cover";
+    document.body.style.backgroundAttachment="fixed"
   }
 
   changeActive(nav_item:string){

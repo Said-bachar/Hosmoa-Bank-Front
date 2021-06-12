@@ -3,9 +3,12 @@
     width: 100%;
     height: 60px;
     align-items: center;
+    border: solid 1px;
 }
 .accounts h4{
     margin-left: 20px;
+    margin-top: auto;
+    font-size: 19px;
 }
 .accounts img{
     margin-right: 20px;
@@ -14,7 +17,6 @@
     margin-top: 5%;
     width:auto;
     color: #fff;
-    font-size: 15px;
 }
 .th-table{
     background-color: #29A3DD;

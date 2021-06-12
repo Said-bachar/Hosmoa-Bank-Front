@@ -15,9 +15,6 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent},
   {path:'recharge',component:RechargeFormComponent},
   {path:'profile',component:ClientProfileComponent,canActivate:[AuthGuard]}
-
-
-
 ];
 
 @NgModule({
