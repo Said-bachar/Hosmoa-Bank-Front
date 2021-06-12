@@ -7,7 +7,7 @@
             <div class="x-btn" *ngIf="transfers.length>1" style="cursor: pointer"  (click)="deletecommandeform(i)"><img style="width:20px; height:20px" src="../../../assets/close1.png" alt=""></div>
             <div class="form-group mt-2"> 
                 <label for="username">
-                    <h4>Debit account (<span style="color:red;">*</span>)</h4>
+                    <h6>Debit account (<span style="color:red;">*</span>)</h6>
                 </label> 
                 <select formControlName="ownerSelectedAccount" class="form-control" style="text-align:center;" id="ccmonth">
                     <option selected disabled> -------------------- Choose -------------------- </option>
@@ -18,7 +18,7 @@
                 </select> 
             </div> 
             <label class="control-label mt-4" for="Select Your Bank">
-                <h4>Select the benefeciary account (<span style="color:red;">*</span>)</h4>
+                <h6>Select the benefeciary account (<span style="color:red;">*</span>)</h6>
             </label>
             <div class="input-group mb-3">
                 <select formControlName="benefeciarySelectedAccont" class="form-control" id="ccmonth" >
@@ -35,7 +35,7 @@
 
             <div class="form-group"> 
                 <label for="amount">
-                    <h4>Amount (<span style="color:red;">*</span>)</h4>
+                    <h6>Amount (<span style="color:red;">*</span>)</h6>
                </label>
                <div class="input-group"> 
                    <input type="text" (change)="showData()" formControlName="amount" name="amount" placeholder="Amount..." class="form-control " required>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group"> 
                 <label class="mt-4" for="pattern">
-                    <h4>Pattern (<span style="color:red;">*</span>)</h4>
+                    <h6>Pattern (<span style="color:red;">*</span>)</h6>
                 </label>
                <div class="input-group"> 
                    <input type="text" name="pattern" formControlName="pattern" placeholder="Pattern..." class="form-control " required>
@@ -58,7 +58,7 @@
              
         </div>   
         <div class="">
-            <h4 style="color:red;">(<span>*</span>) : required</h4>
+            <h6 style="color:red;">(<span>*</span>) : required</h6>
         </div> 
         <hr class="hr-class"> 
     </div>   
