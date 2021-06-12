@@ -20,6 +20,7 @@ import { TransferFormComponent } from './components/transfer-form/transfer-form.
 import { TransferHistoryComponent } from './components/transfer-history/transfer-history.component';
 import { RechargeFormComponent } from './components/recharge-form/recharge-form.component';
 import { RechargesComponent } from './components/recharges/recharges.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { RechargesComponent } from './components/recharges/recharges.component';
     ClientAgentComponent,
     ClientProfileComponent,
     RechargeFormComponent,
-    RechargesComponent
+    RechargesComponent,
+    WelcomePageComponent
 
   ],
   imports: [
