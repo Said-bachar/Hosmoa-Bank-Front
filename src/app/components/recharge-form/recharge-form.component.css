@@ -1,5 +1,5 @@
 .register{
-  background: -webkit-linear-gradient(left, #E95314, #29A3DD);
+  background: -webkit-linear-gradient(left,  #29A3DD,#E95314);
   margin-top: 3%;
   padding: 3%;
 }
@@ -60,6 +60,7 @@
   padding: 10px;
   cursor: pointer;
   margin-top: 15px;
+  outline:none;
 }
 .register .nav-tabs{
   margin-top: 3%;
@@ -104,5 +105,6 @@
   width: 20%;
   padding: 10px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
+  outline:none;
 }

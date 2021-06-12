@@ -38,9 +38,10 @@ export class TransferFormComponent implements OnInit,OnDestroy {
     }))
   }
   
-  // deletecommandeform(index){
-  //   if(this.transfers.length>1) this.transfers.splice(index,1)
-  // }
+  deletecommandeform(index){
+    if(this.transfers.length>1) this.transfers.removeAt(index)
+  }
+
   showData(){
     console.log(this.transfers.controls.values)
   }
