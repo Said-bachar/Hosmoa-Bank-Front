@@ -51,20 +51,20 @@
 }
 .btnRegister{
   float: right;
-  margin-top: 10%;
   border: none;
   border-radius: 1.5rem;
-  padding: 2%;
-  background: #0062cc;
+  background: #29A3DD;
   color: #fff;
   font-weight: 600;
-  width: 50%;
+  width: 20%;
+  padding: 10px;
   cursor: pointer;
+  margin-top: 15px;
 }
 .register .nav-tabs{
   margin-top: 3%;
   border: none;
-  background: #0062cc;
+  background: #29A3DD;
   border-radius: 1.5rem;
   width: 28%;
   float: right;
@@ -82,8 +82,8 @@
 }
 .register .nav-tabs .nav-link.active{
   width: 100px;
-  color: #0062cc;
-  border: 2px solid #0062cc;
+  color: #29A3DD;
+  border: 2px solid #29A3DD;
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
 }
@@ -92,4 +92,17 @@
   margin-top: 8%;
   margin-bottom: -15%;
   color: #495057;
+}
+
+.btnV{
+  float: right;
+  border: none;
+  border-radius: 1.5rem;
+  background: #29A3DD;
+  color: #fff;
+  font-weight: 600;
+  width: 20%;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
 }
