@@ -96,7 +96,7 @@ p {
 }
 
 #header-request-invite-btn {
-  background: linear-gradient(90deg, #31d35c, #2bb7da) !important;
+  background: linear-gradient(90deg, #29A3DD, #E95314) !important;
   font-size: 15px !important;
   display: block;
   margin: auto;
@@ -369,7 +369,7 @@ footer a {
 }
 
 #footer-request-invite-btn {
-  background: linear-gradient(90deg, #31d35c, #2bb7da) !important;
+  background: linear-gradient(90deg, #29A3DD, #E95314) !important;
   font-size: 16px !important;
   display: block;
 }
