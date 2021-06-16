@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -31,10 +31,10 @@ export class TransferFormComponent implements OnInit,OnDestroy {
   }
   addTransferForm(){
     this.transfers.push(new FormGroup({
-      ownerSelectedAccount:new FormControl(),
-      benefeciarySelectedAccont:new FormControl(''),
-      pattern:new FormControl(''),
-      amount:new FormControl('')
+      ownerSelectedAccount:new FormControl('',Validators.required),
+      benefeciarySelectedAccount:new FormControl('',Validators.required),
+      pattern:new FormControl('',Validators.required),
+      amount:new FormControl('',Validators.required)
     }))
   }
   

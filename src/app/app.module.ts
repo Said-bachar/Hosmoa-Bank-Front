@@ -21,6 +21,7 @@ import { TransferHistoryComponent } from './components/transfer-history/transfer
 import { RechargeFormComponent } from './components/recharge-form/recharge-form.component';
 import { RechargesComponent } from './components/recharges/recharges.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefeciary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
     ClientProfileComponent,
     RechargeFormComponent,
     RechargesComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    AddBenefeciaryComponent
 
   ],
   imports: [
