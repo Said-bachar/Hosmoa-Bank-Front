@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token/token.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,15 @@ import { TokenService } from 'src/app/services/token/token.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private tokenServ:TokenService) { }
+  constructor(private tokenServ:TokenService,
+              private userServ:UserService) { }
 
   ngOnInit(): void {
     console.log(this.tokenServ.getExpiryTime())
+  }
+
+  get user(){
+    return this.userServ.user;
   }
 
 }
