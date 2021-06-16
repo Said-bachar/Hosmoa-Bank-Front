@@ -17,7 +17,7 @@ import { AfterAuthGuard } from './guards/after-auth.guard';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent,canActivate:[AfterAuthGuard]},
-  {path:'welcome',component:WelcomePageComponent},
+  {path:'welcome',component:WelcomePageComponent,canActivate:[AfterAuthGuard]},
   {path:'transfer',component:TransferComponent,canActivate:[AuthGuard]},
   {path:'',component:HomeComponent,canActivate:[AuthGuard]},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
