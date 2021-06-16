@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefeciary.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'',component:HomeComponent,canActivate:[AuthGuard]},
   {path:'dashboard',component:DashboardComponent},
   {path:'recharge',component:RechargeFormComponent},
-  {path:'profile',component:ClientProfileComponent,canActivate:[AuthGuard]}
+  {path:'profile',component:ClientProfileComponent,canActivate:[AuthGuard]},
+  {path:'addBenefeciary',component:AddBenefeciaryComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({
