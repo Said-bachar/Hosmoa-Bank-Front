@@ -39,5 +39,8 @@ export class ClientNavbarComponent implements OnInit {
   //       toast.addEventListener('mouseleave', Swal.resumeTimer)
   //     }
   // }
-}
+  }
+  get user(){
+    return this.userServ.user;
+  }
 }
