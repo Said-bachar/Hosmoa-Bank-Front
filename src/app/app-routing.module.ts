@@ -9,8 +9,12 @@ import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefeciary.component';
 
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+
+
 const routes: Routes = [
   {path:'login',component:LoginComponent},
+  {path:'welcome',component:WelcomePageComponent},
   {path:'transfer',component:TransferComponent},
   {path:'',component:HomeComponent,canActivate:[AuthGuard]},
   {path:'dashboard',component:DashboardComponent},
