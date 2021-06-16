@@ -1,5 +1,5 @@
 .register{
-  background: -webkit-linear-gradient(left, #E95314, #29A3DD);
+  background: -webkit-linear-gradient(left,  #29A3DD,#E95314);
   margin-top: 3%;
   padding: 3%;
 }
@@ -49,8 +49,7 @@
   padding: 10%;
   margin-top: 10%;
 }
-.btnRegister{
-  float: right;
+.btnNext{
   border: none;
   border-radius: 1.5rem;
   background: #29A3DD;
@@ -60,6 +59,19 @@
   padding: 10px;
   cursor: pointer;
   margin-top: 15px;
+  outline:none;
+}
+.btnPred{
+  border: none;
+  border-radius: 1.5rem;
+  background: #29A3DD;
+  color: #fff;
+  font-weight: 600;
+  width: 20%;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  outline:none;
 }
 .register .nav-tabs{
   margin-top: 3%;
@@ -98,11 +110,50 @@
   float: right;
   border: none;
   border-radius: 1.5rem;
-  background: #29A3DD;
+  background: #E95314;
   color: #fff;
   font-weight: 600;
   width: 20%;
   padding: 10px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
+  outline:none;
+}
+
+/*------------------------------------------------
+* Effects
+------------------------------------*/
+.effect2
+{
+  position: relative;
+}
+.effect2:before, .effect2:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.effect2:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
 }

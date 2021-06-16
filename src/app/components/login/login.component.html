@@ -3,6 +3,7 @@
         <div class="wrap-login100">
             <div class="login100-pic">
                 <img src="assets/HosmoaBank_home_en.png" alt="HosmoaBank">
+                <img src="../../../assets/login_image.svg" class="mt-2" alt="">
             </div>
             <form [formGroup]="loginForm" (submit)="login()" class="login100-form ">
                 <span class="login100-form-title">
@@ -10,30 +11,30 @@
                 </span>
 
                 <div class="wrap-input100 has-validation" >
-                    <input formControlName="username" ngModel class="input100" name="username" type="text" name="email" placeholder="Email" required 
+                    <input formControlName="email" ngModel class="input100" name="email" type="text" name="email" placeholder="Email" required 
                     [ngClass]="{
                         'invalide':
-                            loginForm.get('username').touched 
+                            loginForm.get('email').touched 
                             && 
-                            loginForm.get('username').errors?.required
+                            loginForm.get('email').errors?.required
                         }">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </span>
                     
-                    <span *ngIf="loginForm.get('username').touched 
+                    <span *ngIf="loginForm.get('email').touched 
                         && 
-                        loginForm.get('username').errors?.required"
+                        loginForm.get('email').errors?.required"
                     >
                        <i class="symbol-error fa fa-exclamation" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="error" *ngIf="loginForm.get('username').touched && loginForm.get('username').errors?.required">
+                <div class="error" *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">
                     <span>
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </span>
-                    Please choose a username.
+                    Please choose a email.
                 </div>
 
                 <div class="wrap-input100" >

@@ -1,60 +1,75 @@
-<!-- Credit card form content -->
 <div class="tab-content">
-    <!-- credit card info-->
-    <div id="credit-card" class="tab-pane fade show active pt-3">
-        <form role="form" onsubmit="event.preventDefault()">
-            <div class="form-group"> <label for="username">
-                    <h4>Debit account (<span style="color:red;">*</span>)</h4>
-                </label> <select class="form-control" style="text-align:center;" id="ccmonth">
-                    <option selected disabled> -------------------- Choose -------------------- </option>
-                    <option>Account 1</option>
-                    <option>Account 2</option>
-                    <option>Account 3</option>
-                    <option>Account 4</option>
-                   
-            </select> 
-        </div>
-            
-           
-              <label class="control-label mt-4" for="Select Your Bank">
-                    <h4>Select the benefeciary account (<span style="color:red;">*</span>)</h4>
-                </label>
+    <a (click)="addTransferForm()" class="nav-link more-item my-2"> 
+        <i class="fa fa-plus-circle"></i> More 
+    </a><br>
+    <div id="transfer" class="tab-pane fade show active pt-3 mt-5" *ngFor="let transfer of transfers.controls;let i = index">
+        <div class="container mb-2" [formGroup]="transfers.controls[i]">
+            <div class="x-btn" *ngIf="transfers.length>1" style="cursor: pointer"  (click)="deletecommandeform(i)"><img style="width:20px; height:20px" src="../../../assets/close1.png" alt=""></div>
+            <div class="form-group mt-2"> 
+                <label for="username">
+                    <h6>Debit account (<span style="color:red;">*</span>)</h6>
+                </label> 
+                <select formControlName="ownerSelectedAccount" class="form-control" style="text-align:center;" id="ccmonth">
+                    <option value="1">Account 1</option>
+                    <option value="2">Account 2</option>
+                    <option value="3">Account 3</option>
+                    <option value="4">Account 4</option> 
+                </select>
+            </div> 
+            <label class="control-label mt-4" for="Select Your Bank">
+                <h6>Select the benefeciary account (<span style="color:red;">*</span>)</h6>
+            </label>
             <div class="input-group mb-3">
-                 
-                <select class="form-control" id="ccmonth">
-                        <option value="" style="text-align:center;"  selected disabled> --Please select benefeciary account-- </option>
-                        <option>Account 1</option>
-                        <option>Account 2</option>
-                        <option>Account 3</option>
-                        <option>Account 4</option>
-                       
+                <select formControlName="benefeciarySelectedAccont" class="form-control" id="ccmonth" >
+                        <option value="1">Account 1</option>
+                        <option value="2">Account 2</option>
+                        <option value="3">Account 3</option>
+                        <option value="4">Account 4</option> 
                 </select>
                 <div class="input-group-append">
-                  <button class="btn btn-outline-primary" style="margin-left: 15px;" type="button">New benefeciary</button>
+                  <a routerLink="/addBenefeciary" class="btn btn-outline-primary" style="margin-left: 15px;" type="button">New benefeciary</a>
+                </div>
+            </div>
+ 
+            <div class="form-group"> 
+                <label for="amount">
+                    <h6>Amount (<span style="color:red;">*</span>)</h6>
+               </label>
+               <div class="input-group"> 
+                   <input type="text" (change)="showData()" formControlName="amount" name="amount" placeholder="Amount..." class="form-control " required>
+               </div>
+               <div class="error" *ngIf="transfers.controls[i].get('amount').touched && transfers.controls[i].get('amount').errors?.required">
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    Amount is required !
+                </div>
+            </div>
+            <div class="form-group"> 
+                <label class="mt-4" for="pattern">
+                    <h6>Pattern (<span style="color:red;">*</span>)</h6>
+                </label>
+               <div class="input-group"> 
+                   <input type="text" name="pattern" formControlName="pattern" placeholder="Pattern..." class="form-control " required>
+               </div>
+               <div class="error" *ngIf="transfers.controls[i].get('pattern').touched && transfers.controls[i].get('pattern').errors?.required">
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    Pattern is required !
                 </div>
             </div>
 
-            <div class="form-group"> <label for="cardNumber">
-                <h4>Amount (<span style="color:red;">*</span>)</h4>
-               </label>
-               <div class="input-group"> <input type="text" name="cardNumber" placeholder="Amount..." class="form-control " required>
-               </div>
-           </div>
-           <div class="form-group"> <label class="mt-4" for="cardNumber">
-                <h4>Pattern(<span style="color:red;">*</span>)</h4>
-                </label>
-               <div class="input-group"> <input type="text" name="cardNumber" placeholder="Motif..." class="form-control " required>
-               </div>
-           </div>
-           <div class="form-group">
-            <label for="creationDate" class="mt-4"><h4>Creation date</h4></label>
-            <div class="input-group">
-              <input class="form-control" type="date" value="Ex : 2021-08-19" id="creationDate">
-            </div>
-          </div>
-              
-            <div class="card-footer mt-2"><button type="button" class="subscribe btn btn-color btn-block shadow-sm"> Confirm Payment </button></div>
-            <div class=""><h4 style="color:red;">(<span>*</span>) : required</h4></div>
-        </form>
+        </div>   
+        <div class="">
+            <h6 style="color:red;">(<span>*</span>) : required</h6>
+        </div> 
+        <hr class="hr-class"> 
+    </div>   
+    <div class="card-footer mt-2">
+        <button type="button" class="subscribe btn btn-color btn-block shadow-sm"> 
+            Confirm Payment 
+        </button>
     </div>
+    
 </div>

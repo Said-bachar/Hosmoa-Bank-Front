@@ -1,8 +1,4 @@
-body {
-  
-    background: #f5f5f5
-    
-}
+
 /* 
 .rounded {
     border-radius: 1rem
@@ -28,10 +24,7 @@ input[type="radio"] {
     font-weight: bold
 }
 
-.nav-pills .nav-link.more-item {
-    background-color: #29A3DD;
-    color: white;
-}
+
 .btn-color {
     background-color: #29A3DD;
     color: white;

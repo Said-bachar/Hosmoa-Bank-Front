@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClientAuthService } from 'src/app/services/auth/client-auth.service';
+import { TokenService } from 'src/app/services/token/token.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-client-navbar',
@@ -7,7 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./client-navbar.component.css']
 })
 export class ClientNavbarComponent implements OnInit {
-  constructor(private router : Router) {
+  constructor(private router : Router,
+    private userServ: UserService,
+    private Token: TokenService) {
     
    }
 
@@ -20,4 +25,19 @@ export class ClientNavbarComponent implements OnInit {
   get url(){
     return this.router.url;
   }
+  logout(){
+    this.Token.remove();
+    this.userServ.changeAuthStatus(false);
+  //   const Toast = Swal.mixin({
+  //     toast: true,
+  //     position: 'top-end',
+  //     showConfirmButton: false,
+  //     timer: 1200,
+  //     timerProgressBar: true,
+  //     didOpen: (toast) => {
+  //       toast.addEventListener('mouseenter', Swal.stopTimer)
+  //       toast.addEventListener('mouseleave', Swal.resumeTimer)
+  //     }
+  // }
+}
 }
