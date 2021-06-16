@@ -22,6 +22,9 @@ import { RechargeFormComponent } from './components/recharge-form/recharge-form.
 import { RechargesComponent } from './components/recharges/recharges.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefeciary.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ClientAuthService } from './services/auth/client-auth.service';
+import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,17 +44,25 @@ import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefe
     RechargeFormComponent,
     RechargesComponent,
     WelcomePageComponent,
-    AddBenefeciaryComponent
+    AddBenefeciaryComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
     
   ],
   providers: [
+    ClientAuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

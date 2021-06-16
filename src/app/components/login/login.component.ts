@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ClientAuthService } from 'src/app/services/client-auth.service';
+import { ClientAuthService } from 'src/app/services/auth/client-auth.service';
+import { TokenService } from 'src/app/services/token/token.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +12,17 @@ import { ClientAuthService } from 'src/app/services/client-auth.service';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  constructor(private clientAuth:ClientAuthService,private router:Router) { }
+  constructor(private clientAuth:ClientAuthService, 
+    private router:Router,
+    private token:TokenService,
+    private userServ:UserService,
+    private authService:ClientAuthService ) { }
+
   ngOnDestroy(): void {
     document.body.style.backgroundImage="url('')";
   }
   loginForm=new FormGroup({
-    username:new FormControl('',Validators.required),
+    email:new FormControl('',Validators.required),
     password:new FormControl('',Validators.required)
   })
   ngOnInit(): void {
@@ -23,9 +30,23 @@ export class LoginComponent implements OnInit, OnDestroy {
     document.body.style.backgroundSize="cover";
     document.body.style.backgroundAttachment="fixed";
   }
+
   login(){
-    console.log(this.loginForm.value)
-    // this.clientAuth.login
-    this.router.navigateByUrl('/')
+    this.authService.login(this.loginForm.value.email,this.loginForm.value.password)
+    .subscribe(res=>{
+      console.log(res.id,res.token)
+      this.handleResponse({id:res.id,token:res.token})
+    },err=>{
+      console.log(err)
+    })
+  }
+  handleResponse(data) {
+    this.token.handle(data);
+    this.userServ.changeAuthStatus(true);
+    
+    
+    
+    //if(this.userServ.user.role === 2) return this.router.navigateByUrl('/admin');
+    return this.router.navigateByUrl('/');
   }
 }
