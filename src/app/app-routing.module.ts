@@ -10,15 +10,16 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefeciary.component';
 
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { AfterAuthGuard } from './guards/after-auth.guard';
 
 
 const routes: Routes = [
-  {path:'login',component:LoginComponent},
+  {path:'login',component:LoginComponent,canActivate:[AfterAuthGuard]},
   {path:'welcome',component:WelcomePageComponent},
-  {path:'transfer',component:TransferComponent},
+  {path:'transfer',component:TransferComponent,canActivate:[AuthGuard]},
   {path:'',component:HomeComponent,canActivate:[AuthGuard]},
-  {path:'dashboard',component:DashboardComponent},
-  {path:'recharge',component:RechargeFormComponent},
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:'recharge',component:RechargeFormComponent,canActivate:[AuthGuard]},
   {path:'profile',component:ClientProfileComponent,canActivate:[AuthGuard]},
   {path:'addBenefeciary',component:AddBenefeciaryComponent,canActivate:[AuthGuard]}
 ];

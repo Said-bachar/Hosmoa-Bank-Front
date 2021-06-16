@@ -8,8 +8,9 @@ export class TokenService {
   constructor() { }
   decodedToken: any;
   //Enregitrement du Token dans le local Storage
-  set(data: any) {
+  set(data) {
     const {token,id} = data;
+    console.log(data)
     localStorage.setItem('id', id);
     localStorage.setItem('token', token);
   } 
@@ -84,7 +85,7 @@ export class TokenService {
     }
   }
   getExpiryTime() {
-    this.getInfos();
+    this.decodedToken=this.getInfos();
     return this.decodedToken ? this.decodedToken.exp : null;
   }
 }
