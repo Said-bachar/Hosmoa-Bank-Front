@@ -14,15 +14,13 @@
                     <div class="row register-form">
                         <div class="col-md-12">
                             <div class="form-group mb-4">
-                                <select formControlName="account" class="form-control" required>
+                                <select formControlName="accountNumber" class="form-control" required>
                                     <option class="hidden"  selected disabled>Please select your account</option>
-                                    <option>Account 1</option>
-                                    <option>Account 2</option>
-                                    <option>Account 3</option>
+                                    <option *ngFor="let account of myAccounts" value="{{account.accountNumber}}">{{account.accountNumber}}</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" formControlName="key" class="form-control" placeholder="Your secret key" value="" required/>
+                                <input type="text" formControlName="keySecret" class="form-control" placeholder="Your secret key" value="" required/>
                             </div>
                             <input type="submit" (click)="next()" class="btnNext"  value="Next >>"/> 
                         </div>
@@ -58,7 +56,7 @@
                                   </div>
                             </form>
                             <div class="form-group mb-4">
-                                <input type="text" formControlName="phone" class="form-control" placeholder="Phone number (Ex : 0612345678)" value="" required/>
+                                <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Phone number (Ex : 0612345678)" value="" required/>
                             </div>
                             <div class="form-group">
                                 <select class="form-control" formControlName="amount" required>

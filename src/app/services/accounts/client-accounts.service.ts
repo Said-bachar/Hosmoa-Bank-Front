@@ -13,5 +13,16 @@ export class ClientAccountsService {
   getCurrentClientAccounts():Observable<Account[]>{
     return this.http.get<Account[]>(`${environment.BASE_URL}/client/api/accounts`);
   }
+  checkAccountCredentials(
+    payload: {
+      accountNumber: string;
+      keySecret: string;
+    },
+    operation: string
+  ) {
+    console.log(payload)
+    return this.http.post(
+      `${environment.BASE_URL}/client/api/verify_number?operation=${operation}`,payload);
+  }
 
 }

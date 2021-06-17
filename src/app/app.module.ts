@@ -25,6 +25,7 @@ import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefe
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientAuthService } from './services/auth/client-auth.service';
 import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
+import { BalancePipe } from './pipes/balance.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
     RechargesComponent,
     WelcomePageComponent,
     AddBenefeciaryComponent,
+    BalancePipe,
     
 
   ],
