@@ -1,0 +1,21 @@
+
+
+
+
+# POST http://localhost:8085/api/auth
+# Cache-Control: no-cache
+# Content-Type: application/json
+
+# {
+#     "email": "said.bachar@gmail.com",
+#     "password": "saidbachar"
+# }
+
+# ###
+
+GET http://localhost:8085/client/api/accounts
+
+###
+
+# GET http://localhost:8085/client/api/recharges
+

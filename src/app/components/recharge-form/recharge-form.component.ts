@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
 
+import { RechargeService } from 'src/app/services/recharge/recharge.service';
+import { ClientAccountsService } from 'src/app/services/accounts/client-accounts.service';
+
 @Component({
   selector: 'app-recharge-form',
   templateUrl: './recharge-form.component.html',
@@ -17,10 +20,20 @@ export class RechargeFormComponent implements OnInit {
     amount:new FormControl('')
   })
   credentialsVerified = false;
+
+  
  
-  constructor() {}
+  constructor(
+              private rechargeServ: RechargeService, 
+              private clientAccountsServ : ClientAccountsService
+             ) {}
 
   ngOnInit(): void {
+
+    // this.rechargeServ.getAllRecharges().subscribe(val => {console.log(val) })
+       this.clientAccountsServ.getCurrentClientAccounts().subscribe(res => {
+         console.log(res)
+       })
   }
   
   next() {
@@ -29,6 +42,26 @@ export class RechargeFormComponent implements OnInit {
   pred(){
     this.credentialsVerified = false;
   }
+
+
+  //Create recharge :
+  createRecharge() {
+    const request = {...this.rechargeForm.value}
+    console.log(request)
+    this.rechargeServ.createRecharge(request).subscribe(
+      (recharge) => {
+        console.log("RES", recharge);
+      },
+      (error) => {
+        console.log("RES ERR", error);
+        alert(error.error.message);
+      }
+    );
+  }
+
+
+
+
 
   async recharge(){
     const { value: key } = await Swal.fire({

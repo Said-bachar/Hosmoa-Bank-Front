@@ -194,13 +194,27 @@ p {
 }
 
 #request-invite-btn {
-  background: linear-gradient(90deg, #29A3DD, #E95314) !important;
+  /* background: linear-gradient(90deg, #29A3DD, #E95314) !important; */
   font-size: 18px !important;
   display: block;
 }
 .login{
   width: 170%;
 }
+
+.login1{
+  background-color: #29A3DD !important;
+}
+
+.login2{
+  background: linear-gradient(90deg, #29A3DD, #E95314) !important;
+}
+
+.login3{
+  background-color: #E95314 !important;
+}
+
+
 
 /* Choose Easybank */
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
@@ -423,3 +437,10 @@ footer a {
 .request-btns:hover, .request-btns:active {
   opacity: 0.7;
 }
+
+
+
+
+
+
+
