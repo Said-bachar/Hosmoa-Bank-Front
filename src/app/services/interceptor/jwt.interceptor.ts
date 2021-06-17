@@ -14,12 +14,14 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private tokenServ:TokenService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    request = request.clone({
-      setHeaders: {
-        Authorization: `Barber ${this.tokenServ.getToken()}`
-
-      }
-    });
+    if(this.tokenServ.getToken()){
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${this.tokenServ.getToken()}`
+        }
+      });
+    }
+    
 
     return next.handle(request);
   }

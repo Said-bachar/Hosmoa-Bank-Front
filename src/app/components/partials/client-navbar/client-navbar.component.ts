@@ -39,6 +39,7 @@ export class ClientNavbarComponent implements OnInit {
   //       toast.addEventListener('mouseleave', Swal.resumeTimer)
   //     }
   // }
+  this.router.navigateByUrl('/login');
   }
   get user(){
     return this.userServ.user;

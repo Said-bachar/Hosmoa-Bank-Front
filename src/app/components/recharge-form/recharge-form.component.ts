@@ -32,7 +32,7 @@ export class RechargeFormComponent implements OnInit {
 
     // this.rechargeServ.getAllRecharges().subscribe(val => {console.log(val) })
        this.clientAccountsServ.getCurrentClientAccounts().subscribe(res => {
-         console.log(res)
+         console.log("Data :"+res[0]);
        })
   }
   

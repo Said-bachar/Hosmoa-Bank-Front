@@ -13,7 +13,7 @@ export class AccountsComponent implements OnInit {
   ngOnInit(): void {
     this.clientAccountServ.getCurrentClientAccounts()
     .subscribe(res=>{
-      console.log(res)
+      console.log(JSON.stringify(res))
     },
       err=>{
         console.log(err)
