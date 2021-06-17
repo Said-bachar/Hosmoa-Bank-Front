@@ -25,8 +25,8 @@
                     <img src="../../../../assets/releve_bancaire.png" height="20px" width="20px" alt="" class="mt-2">
                     <a class="nav-link" (click)="changeActive('R')"  routerLink="recharge"><strong>Recharges</strong></a>
                 </li>
-                <li class="nav-item d-flex ml-auto" [ngClass]="{'nav-active':url==='/profile'}">
-                    <a class="nav-link" routerLink="/profile"><strong><i>Bienvenue</i>{{user.firstName}} {{user.lastName}}</strong></a>
+                <li class="nav-item d-flex ml-auto" *ngIf="user!==null" [ngClass]="{'nav-active':url==='/profile'}">
+                    <a class="nav-link" routerLink="/profile"><strong><i>Bienvenue </i>{{user.firstName}} {{user.lastName}}</strong></a>
                 </li>
                 <li class="nav-item d-flex justify-content-between">
                     <a href="#notification" class="nav-link">

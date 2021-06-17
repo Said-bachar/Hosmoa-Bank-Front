@@ -19,6 +19,6 @@ export class UserService {
     this.loggedIn.next(value);
   }
   get user():User{
-    return this.token.getInfos().user;
+    return this.token.getInfos()?this.token.getInfos().user:null;
   }
 }
