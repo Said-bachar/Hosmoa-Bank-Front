@@ -25,6 +25,8 @@ import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefe
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientAuthService } from './services/auth/client-auth.service';
 import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,7 @@ import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
     
   ],

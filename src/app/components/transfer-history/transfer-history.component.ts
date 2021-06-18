@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Transfer } from 'src/app/models/transfer.model';
+import { TransferService } from 'src/app/services/transfer/transfer.service';
 
 @Component({
   selector: 'app-transfer-history',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransferHistoryComponent implements OnInit {
 
-  constructor() { }
+  transfers:Transfer[];
+
+  constructor(private transferService:TransferService) { }
 
   ngOnInit(): void {
+    document.body.style.backgroundColor='#29A3DD';
+    this.transferService.getAllTransfers().subscribe(data => {
+      this.transfers = data;
+    });
   }
 
 }
