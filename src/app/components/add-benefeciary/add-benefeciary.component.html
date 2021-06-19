@@ -1,0 +1,48 @@
+<div class="container py-5">
+    <!-- For demo purpose -->
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-6" style="color:#fff;font-size: 35px; font-weight:bold">Hosmoa Bank Benefeciary</h1>
+        </div>
+    </div> <!-- End -->
+    <div class="row">
+        <div class="col-lg-6 mx-auto shadow-lg rounded">
+            <div class="card ">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="benefeciary" class="tab-pane fade show active pt-3">
+                            <div class="container mb-2">
+                                <div class="form-group mt-2"> 
+                                    <label for="username">
+                                        <h6>Benefeciary name (<span style="color:red;">*</span>)</h6>
+                                    </label>
+                                    <div class="input-group"> 
+                                        <input type="text"  formControlName="b_name" name="benName"  class="form-control " required>
+                                    </div>
+                                </div> 
+                    
+                                <div class="form-group"> 
+                                    <label for="amount">
+                                        <h6>Account Number (<span style="color:red;">*</span>)</h6>
+                                   </label>
+                                   <div class="input-group"> 
+                                       <input type="text"  formControlName="b_account" name="benAccount" class="form-control " required>
+                                   </div>
+                                </div>
+                            </div>   
+                            <div class="">
+                                <h6 style="color:red;">(<span>*</span>) : required</h6>
+                            </div> 
+                        </div>   
+                        <div class="card-footer mt-2">
+                            <button type="button" class="subscribe btn btn-color btn-block shadow-sm"> 
+                                Validate
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

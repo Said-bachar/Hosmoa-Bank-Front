@@ -1,0 +1,31 @@
+.nav-link.more-item {
+    background-color: #29A3DD;
+    color: white;
+    float: right;
+    width: 20%;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-color {
+    background-color: #29A3DD;
+    color: white;
+}
+.x-btn{
+    float: right;
+}
+.hr-class{
+    border: solid 2px #E95314;
+    margin:10% 0;
+}
+/* select option{
+    align-items: center;
+} */
+.error{
+    width:100%;
+    margin-top:.25rem;
+    font-size:80%;
+    color:#dc3545;
+    margin-left:20px;
+    margin-bottom:10px;
+  }

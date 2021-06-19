@@ -1,0 +1,37 @@
+.accounts{
+    background-color: #E95314;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    border: solid 1px;
+}
+.accounts h4{
+    margin-left: 20px;
+}
+.accounts img{
+    margin-right: 20px;
+}
+.cont{
+    margin-top: 5%;
+    width:auto;
+    color: #fff;
+}
+.th-table{
+    background-color: #29A3DD;
+}
+.cont-account{
+    width: 70%;
+    position: absolute;
+}
+
+@media all and (max-width:1000px) {
+    .cont-account{
+        width: 100%;
+        position: relative;
+    }
+}
+@media all and (max-width:800px) {
+    .accounts h4{
+        font-size: 18px;
+    }
+}

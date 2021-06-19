@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+  
+  }
+  
+  .content {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .timestamp {
+    font-size: 10pt;
+  }
+  
+  .dismiss {
+    color: #d84242;
+    margin-bottom: 35px;
+  }
