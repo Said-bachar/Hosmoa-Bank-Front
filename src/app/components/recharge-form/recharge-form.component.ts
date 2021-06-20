@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 import { RechargeService } from 'src/app/services/recharge/recharge.service';
@@ -14,11 +14,11 @@ import { Router } from '@angular/router';
 })
 export class RechargeFormComponent implements OnInit {
   rechargeForm=new FormGroup({
-    accountNumber:new FormControl(''),
-    keySecret:new FormControl(''),
-    operator:new FormControl(''),
-    phoneNumber:new FormControl(''),
-    amount:new FormControl('')
+    accountNumber:new FormControl('',Validators.required),
+    keySecret:new FormControl('',Validators.required),
+    operator:new FormControl('',Validators.required),
+    phoneNumber:new FormControl('',Validators.required),
+    amount:new FormControl('',Validators.required)
   })
   credentialsVerified = false;
 

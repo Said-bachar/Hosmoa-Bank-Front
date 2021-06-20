@@ -18,11 +18,17 @@
                                     <option class="hidden"  selected disabled>Please select your account</option>
                                     <option *ngFor="let account of myAccounts" value="{{account.accountNumber}}">{{account.accountNumber}}</option>
                                 </select>
+                                <p style="color: red" *ngIf="rechargeForm.get('accountNumber').touched && rechargeForm.get('accountNumber').errors?.required">
+                                    Account Number is required !!!
+                                </p>
                             </div>
                             <div class="form-group">
                                 <input type="text" formControlName="keySecret" class="form-control" placeholder="Your secret key" value="" required/>
                             </div>
-                            <input type="submit" (click)="next()" class="btnNext"  value="Next >>"/> 
+                            <p style="color: red" *ngIf="rechargeForm.get('keySecret').touched && rechargeForm.get('keySecret').errors?.required">
+                                Key Secret is required !!!
+                            </p>
+                            <input type="submit" [disabled]="rechargeForm.get('keySecret').errors?.required || rechargeForm.get('accountNumber').errors?.required" (click)="next()" class="btnNext"  value="Next >>"/> 
                         </div>
                     </div>
                 </div>
@@ -57,7 +63,11 @@
                             </form>
                             <div class="form-group mb-4">
                                 <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Phone number (Ex : 0612345678)" value="" required/>
+                                <p style="color: red" *ngIf="rechargeForm.get('phoneNumber').touched && rechargeForm.get('phoneNumber').errors?.required">
+                                    Phone Number is required !!!
+                                </p>
                             </div>
+                            
                             <div class="form-group">
                                 <select class="form-control" formControlName="amount" required>
                                     <option class="hidden"  selected disabled>Please select recharge amount</option>
@@ -69,10 +79,13 @@
                                     <option value="200">200</option>
                                 </select>
                             </div>
+                            <p style="color: red" *ngIf="rechargeForm.get('amount').touched && rechargeForm.get('amount').errors?.required">
+                                Amount is required !!!
+                            </p>
                         </div> 
                         <div class="d-flex justify-content-between">
                             <input type="submit" (click)="pred()" class="btnPred float-left"  value="<< Predious"/>
-                            <input type="submit" (click)="createRecharge()" class="btnV float-right" value="Validate"/>
+                            <input type="submit" [disabled]="rechargeForm.invalid" (click)="createRecharge()" class="btnV float-right" value="Validate"/>
                         </div>
                     </div>
                 </div>
