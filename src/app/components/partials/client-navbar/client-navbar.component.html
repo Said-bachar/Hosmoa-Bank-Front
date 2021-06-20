@@ -13,14 +13,14 @@
 
                     <a class="nav-link " (click)="changeActive('Virements')" aria-current="page" routerLink="transfer"><strong>Transfers</strong></a>
                 </li>
-                <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/cart'}">
+                <!-- <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/cart'}">
                     <img src="../../../../assets/recharge_carte.png" height="20px" width="20px" alt="" class="mt-2">
                     <a class="nav-link" routerLink="#"><strong>Carte Prépayée</strong></a>
                 </li>
                 <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/payment'}">
                     <img src="../../../../assets/paiement_factures.png" height="20px" width="20px" alt="" class="mt-2">
                     <a class="nav-link" routerLink="#"><strong>Paiment Factures</strong></a>
-                </li>
+                </li> -->
                 <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/recharge'}">
                     <img src="../../../../assets/releve_bancaire.png" height="20px" width="20px" alt="" class="mt-2">
                     <a class="nav-link" (click)="changeActive('R')"  routerLink="recharge"><strong>Recharges</strong></a>
