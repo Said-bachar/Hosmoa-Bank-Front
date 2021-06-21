@@ -20,9 +20,17 @@ export class ClientAccountsService {
     },
     operation: string
   ) {
-    console.log(payload)
     return this.http.post(
       `${environment.BASE_URL}/client/api/verify_number?operation=${operation}`,payload);
+  }
+  //Change client Key Secret
+  changeKeySecret(payload:{
+    accountNumber: string;
+    keySecret: string;
+    newKeySecret: string;
+    newKeySecretConf: string;
+  }):Observable<any>{
+    return this.http.post(`${environment.BASE_URL}/client/api/accounts/management/changer_code`,payload)
   }
 
 }
