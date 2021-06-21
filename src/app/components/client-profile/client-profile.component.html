@@ -12,51 +12,58 @@
 		            <div class="row">
 		                <div class="col-md-12">
                               <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label"><strong>Picture</strong></label> 
+                                <div class="col-8">
+                                 <img src="{{User.picture}}" alt="">
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
                                 <label for="name" class="col-4 col-form-label"><strong>First Name</strong></label> 
                                 <div class="col-8">
-                                  <p>Haitham</p>
+                                  <p>{{User.firstName}}</p>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="lastname" class="col-4 col-form-label"><strong>Last Name</strong></label> 
                                 <div class="col-8">
-                                  <p>OUMERZOUG</p>
+                                  <p>{{User.lastName}}</p>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="text" class="col-4 col-form-label"><strong>Email</strong></label> 
                                 <div class="col-8">
-                                  <p>haitham@gmail.com</p>
+                                  <p>{{User.email}}</p>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="" class="col-4 col-form-label"><strong>Address</strong></label> 
                                 <div class="col-8">
-                                    <textarea id="adress" name="adress" cols="40" rows="4" class="form-control" disabled>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, exercitationem.</textarea>                                </div>
+                                    <textarea id="adress" name="adress" cols="40" rows="4" class="form-control" disabled>{{User.adress}}</textarea>                                </div>
                                 </div>
                               <hr class="hr-class">
                               <div class="form-group row">
                                 <label for="newpass" class="col-4 col-form-label"><strong>City</strong></label> 
                                 <div class="col-8">
-                                  <p>Marrakech</p>
+                                  <p>{{User.agency.city.name}}</p>
                                 </div>
                               </div> 
                               <div class="form-group row">
                                 <label for="" class="col-4 col-form-label"><strong>Zip Code</strong></label> 
                                 <div class="col-8">
-                                  <p>80090</p>
+                                  <p>{{User.agency.city.name}}</p>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label  class="col-4 col-form-label"><strong>Country</strong></label> 
                                 <div class="col-8">
-                                  <p>Morroco</p>
+                                  <p>Morocco</p>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label  class="col-4 col-form-label"><strong>Phone</strong></label> 
                                 <div class="col-8">
-                                  <p>0642509795</p>
+                                  <p>{{User.phoneNumber}}</p>
                                 </div>
                               </div>
 		                </div>
