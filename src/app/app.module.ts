@@ -26,6 +26,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientAuthService } from './services/auth/client-auth.service';
 import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
 import { BalancePipe } from './pipes/balance.pipe';
+import { ChangeKeyComponent } from './components/change-key/change-key.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,8 @@ import { BalancePipe } from './pipes/balance.pipe';
     WelcomePageComponent,
     AddBenefeciaryComponent,
     BalancePipe,
+    ChangeKeyComponent,
+    ChangePasswordComponent,
     
 
   ],
