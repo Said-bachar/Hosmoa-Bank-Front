@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientProfileComponent implements OnInit {
 
+  User: any;
   constructor() { }
 
   ngOnInit(): void {
+     this.userService.getUserProfil().subscribe(data => {
+    
+      this.User = data;
+    })
   }
 
 }
