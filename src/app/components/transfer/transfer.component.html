@@ -14,8 +14,8 @@
                     <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
                         <!-- Credit card form tabs -->
                         <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
-                            <li class="nav-item" [ngClass]="{'nav-active': isActive==='T'}"><a routerLink="#" [ngClass]="{'active-item': isActive==='T'}" (click)="changeActive('T'); isShowed=true;" class="nav-link"> <i class="fa fa-credit-card mr-2"></i> Transfer money </a> </li>
-                            <li class="nav-item" [ngClass]="{'nav-active': isActive==='H'}"> <a routerLink="#" [ngClass]="{'active-item': isActive==='H'}" (click)="changeActive('H'); isShowed=false;" class="nav-link "> <i class="fa fa-history mr-2"></i> Historical </a> </li>
+                            <li class="nav-item" [ngClass]="{'nav-active': isActive==='T'}"><a routerLink="#" [ngClass]="{'active-item': isActive==='T'}" (click)="changeActive('T'); isShowed=true;" class="nav-link"> <i class="fa fa-credit-card mr-2"></i> Transfer Form </a> </li>
+                            <li class="nav-item" [ngClass]="{'nav-active': isActive==='H'}"> <a routerLink="#" [ngClass]="{'active-item': isActive==='H'}" (click)="changeActive('H'); isShowed=false;" class="nav-link "> <i class="fa fa-history mr-2"></i> Transfer Track </a> </li>
                         </ul>
                     </div> <!-- End -->
                     <app-transfer-form *ngIf="isShowed"></app-transfer-form>
