@@ -1,6 +1,7 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Account } from 'src/app/models/account.model';
 import { ClientAccountsService } from 'src/app/services/accounts/client-accounts.service';
 import { TransferService } from 'src/app/services/transfer/transfer.service';
@@ -11,16 +12,21 @@ import Swal from 'sweetalert2';
   templateUrl: './transfer-form.component.html',
   styleUrls: ['./transfer-form.component.css']
 })
+
+
 export class TransferFormComponent implements OnInit,OnDestroy {
+  // @Output()  isShowedChange = new EventEmitter<boolean>();
 
   accounts:Account[];
-
+  
+  isIncorrect=new BehaviorSubject<boolean>(false);
+  
   transfers=new FormArray([
     new FormGroup(
-      {acountNumber:new FormControl(''),
-      numeroCompteDest:new FormControl(''),
-      amount:new FormControl(''),
-      keySecret:new FormControl('')
+      {acountNumber:new FormControl('',[Validators.required]),
+      numeroCompteDest:new FormControl('',[Validators.required]),
+      amount:new FormControl('',[Validators.required]),
+      keySecret:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(8)])
       }
     )
   ])
@@ -46,11 +52,26 @@ export class TransferFormComponent implements OnInit,OnDestroy {
     console.log(this.transfers.controls[0].value);
     this.transferService.createTransfer(this.transfers.controls[0].value).subscribe(
       (resl) => {
-        console.log("Transfer confirmed !")
+        Swal.fire({
+          icon: 'success',
+          title: 'Transfer confirmed!',
+          text: 'Your can check your Transfer Track!',
+          confirmButtonColor:'#29A3DD',
+        })
         this.router.navigateByUrl('/')
       },
       (error) => {
         console.log("Transfer Error", error);
+        if(error.status===422){
+          Swal.fire({
+            icon: 'error',
+            title: 'Oooops!',
+            text: 'Your key is incorrect!',
+            confirmButtonColor:'#29A3DD',
+          })
+          this.isIncorrect.next(true)
+        }
+        
       }
     );
   }
@@ -71,4 +92,8 @@ export class TransferFormComponent implements OnInit,OnDestroy {
   showData(){
     console.log(this.transfers.controls.values)
   }
+  changeisIncorrect(value: boolean) {
+    this.isIncorrect.next(value)
+  }
+
 }

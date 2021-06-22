@@ -8,7 +8,7 @@
 .form-group strong {
     color: #E95314;
 }
-img {
-    height: 250px;
-    width: 200px;
-}
+.invalid{
+    border: solid 1.5px #dc3545;
+  }
+

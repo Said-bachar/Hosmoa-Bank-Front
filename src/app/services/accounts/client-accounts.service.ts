@@ -11,7 +11,7 @@ export class ClientAccountsService {
   constructor(private http:HttpClient) { }
 
   getCurrentClientAccounts():Observable<Account[]>{
-    return this.http.get<Account[]>(`${environment.BASE_URL}/client/api/accounts`);
+    return this.http.get<Array<Account>>(`${environment.BASE_URL}/client/api/accounts`);
   }
   checkAccountCredentials(
     payload: {

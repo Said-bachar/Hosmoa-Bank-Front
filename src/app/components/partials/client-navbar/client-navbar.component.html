@@ -10,27 +10,24 @@
             <ul class="navbar-nav m-auto">
                 <li class="nav-item d-flex"  [ngClass]="{'nav-active':url==='/transfer'}">
                     <img src="../../../../assets/virement.png" height="20px" width="20px" alt="" class="mt-2">
-
                     <a class="nav-link " (click)="changeActive('Virements')" aria-current="page" routerLink="/transfer"><strong>Transfers</strong></a>
                 </li>
-                <!-- <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/securite'}">
-                    <img src="../../../../assets/recharge_carte.png" height="20px" width="20px" alt="" class="mt-2">
-                    <a class="nav-link" routerLink="#"><strong>Sécurité</strong></a>
-                </li> -->
                 <li class="nav-item dropdown" [ngClass]="{'nav-active':url==='/changeKey' || url==='/changePassword'}">
-                    <img src="../../../../assets/recharge_carte.png" height="20px" width="20px" alt="" class="mt-2">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <strong>Sécurité</strong>
+                        <img src="../../../../assets/security.png" height="20px" width="20px" alt="" class="suct-img" >
+                        <strong >Security</strong>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" routerLink="/changeKey">Change Hosmoa-Key</a></li>
-                      <li><a class="dropdown-item" routerLink="/changePassword">Change Password</a></li>
+                        <li class="d-flex drop-menu">
+                            <img src="../../../../assets/keySecret.png" height="20px" width="20px" alt="" class="mt-2" >  
+                            <a class="dropdown-item" routerLink="/changeKey"><strong>Change Hosmoa-Key</strong></a>
+                        </li>
+                        <li class="d-flex drop-menu">
+                            <img src="../../../../assets/password.png" height="20px" width="20px" alt="" class="mt-2">  
+                            <a class="dropdown-item" routerLink="/changePassword"><strong>Change Password</strong></a>
+                        </li>
                     </ul>
                 </li>
-                <!--<li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/payment'}">
-                    <img src="../../../../assets/paiement_factures.png" height="20px" width="20px" alt="" class="mt-2">
-                    <a class="nav-link" routerLink="#"><strong>Paiment Factures</strong></a>
-                </li> -->
                 <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/recharge'}">
                     <img src="../../../../assets/releve_bancaire.png" height="20px" width="20px" alt="" class="mt-2">
                     <a class="nav-link" (click)="changeActive('R')"  routerLink="/recharge"><strong>Recharges</strong></a>

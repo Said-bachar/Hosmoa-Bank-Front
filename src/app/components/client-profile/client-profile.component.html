@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container shadow-lg my-4" *ngIf="user!==undefined">
 	<div class="row">
 		<div class="col-10 offset-1 mt-3">
 		    <div class="card">
@@ -14,44 +14,45 @@
                               <div class="form-group row">
                                 <label for="name" class="col-4 col-form-label"><strong>Picture</strong></label> 
                                 <div class="col-8">
-                                 <img src="{{User.picture}}" alt="">
+                                 <img src="{{user.picture}}" *ngIf="user.picture!==undefined" class="rounded-circle shadow-lg mb-4" width="150" alt="">
+                                 <img src="{{urlImg}}" *ngIf="user.picture===undefined" class="rounded-circle shadow-lg mb-4" width="150" alt="">
                                 </div>
                               </div>
 
                               <div class="form-group row">
                                 <label for="name" class="col-4 col-form-label"><strong>First Name</strong></label> 
                                 <div class="col-8">
-                                  <p>{{User.firstName}}</p>
+                                  <p>{{user.firstName}}</p>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="lastname" class="col-4 col-form-label"><strong>Last Name</strong></label> 
                                 <div class="col-8">
-                                  <p>{{User.lastName}}</p>
+                                  <p>{{user.lastName}}</p>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="text" class="col-4 col-form-label"><strong>Email</strong></label> 
                                 <div class="col-8">
-                                  <p>{{User.email}}</p>
+                                  <p>{{user.email}}</p>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="" class="col-4 col-form-label"><strong>Address</strong></label> 
                                 <div class="col-8">
-                                    <textarea id="adress" name="adress" cols="40" rows="4" class="form-control" disabled>{{User.adress}}</textarea>                                </div>
+                                    <textarea id="adress" name="adress" cols="40" rows="4" class="form-control" disabled>{{user.adress}}</textarea>                                </div>
                                 </div>
                               <hr class="hr-class">
                               <div class="form-group row">
                                 <label for="newpass" class="col-4 col-form-label"><strong>City</strong></label> 
                                 <div class="col-8">
-                                  <p>{{User.agency.city.name}}</p>
+                                  <p>{{user.city}}</p>
                                 </div>
                               </div> 
                               <div class="form-group row">
                                 <label for="" class="col-4 col-form-label"><strong>Zip Code</strong></label> 
                                 <div class="col-8">
-                                  <p>{{User.agency.city.name}}</p>
+                                  <p>{{user.codePostale}}</p>
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -63,7 +64,7 @@
                               <div class="form-group row">
                                 <label  class="col-4 col-form-label"><strong>Phone</strong></label> 
                                 <div class="col-8">
-                                  <p>{{User.phoneNumber}}</p>
+                                  <p>{{user.phoneNumber}}</p>
                                 </div>
                               </div>
 		                </div>

@@ -6,6 +6,7 @@ import { RechargeService } from 'src/app/services/recharge/recharge.service';
 import { ClientAccountsService } from 'src/app/services/accounts/client-accounts.service';
 import { Account } from 'src/app/models/account.model';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-recharge-form',
@@ -15,14 +16,14 @@ import { Router } from '@angular/router';
 export class RechargeFormComponent implements OnInit {
   rechargeForm=new FormGroup({
     accountNumber:new FormControl('',Validators.required),
-    keySecret:new FormControl('',Validators.required),
+    keySecret:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(8)]),
     operator:new FormControl('',Validators.required),
     phoneNumber:new FormControl('',Validators.required),
     amount:new FormControl('',Validators.required)
   })
   credentialsVerified = false;
 
-  
+  isIncorrect=new BehaviorSubject<boolean>(false);
  
   constructor(
               private rechargeServ: RechargeService, 
@@ -74,9 +75,13 @@ export class RechargeFormComponent implements OnInit {
               title: 'Oops...',
               text: 'Your Key secret is incorrect!',
             })
+            this.changeisIncorrect(true);
           }
         }
       );
+  }
+  changeisIncorrect(value: boolean) {
+    this.isIncorrect.next(value)
   }
 
   //Create recharge :

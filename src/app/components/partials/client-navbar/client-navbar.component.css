@@ -14,6 +14,16 @@
 .navbar-collapse{
 	margin-left: 40px;
 }
+.m-right {
+	margin-right: 0;
+}
+.dropdown-menu li a:hover{
+	background-color: #E95314;
+	color: #fff;
+}
+.suct-img{
+	margin-right: 5%;
+}
 
 @media all and (max-width:1240px)  {
 	.nav-link{
@@ -40,6 +50,9 @@
 	.nav-item{
 		display: inline-block;
 	}
+	.suct-img{
+		margin-right: 0%;
+	}
 }
 @media all and (max-width:980px)  {
 	.nav-link{
@@ -50,6 +63,3 @@
 	}
 }
 
-.m-right {
-	margin-right: 0;
-}

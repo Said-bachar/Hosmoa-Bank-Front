@@ -13,10 +13,10 @@ import Swal from 'sweetalert2';
 export class ChangeKeyComponent implements OnInit {
   changeKeyForm=new FormGroup({
     //Il faut ajouter la valodation de 8 caracteres du keySecr
-    accountNumber:new FormControl('',Validators.required),
-    keySecret:new FormControl('',Validators.required),
-    newKeySecret:new FormControl('',Validators.required),
-    newKeySecretConf:new FormControl('',Validators.required)
+    accountNumber:new FormControl('',[Validators.required]),
+    keySecret:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(8)]),
+    newKeySecret:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(8)]),
+    newKeySecretConf:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(8)])
   })
   constructor(private accountService:ClientAccountsService, private router:Router) { }
   myAccounts:Array<Account>;

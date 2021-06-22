@@ -9,15 +9,40 @@
                 <label for="username">
                     <h6>Select your debit account (<span style="color:red;">*</span>)</h6>
                 </label> 
-                <select formControlName="acountNumber" class="form-control" style="text-align:center;" id="ccmonth">
+                <select formControlName="acountNumber" class="form-control" style="text-align:center;" id="ccmonth" [ngClass]="{
+                    'invalid':
+                        (transfers.controls[i].get('acountNumber').touched 
+                        && 
+                        transfers.controls[i].get('acountNumber').errors?.required)
+                    }">
                     <option *ngFor="let account of accounts" value="{{ account.accountNumber }}">{{account.accountNumber}}</option>
                 </select>
+                <div class="error" *ngIf="transfers.controls[i].get('acountNumber').touched && transfers.controls[i].get('acountNumber').errors?.required">
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    Account number is required !
+                </div>
             </div> 
-            <label class="control-label mt-4" for="Select Your Bank">
-                <h6>Enter a destination account (<span style="color:red;">*</span>)</h6>
-            </label>
-            <div class="input-group mb-3">
-                <input formControlName="numeroCompteDest" type="text" placeholder="Destination account" class="form-control" required/>
+            
+            <div class="form-group mt-2">
+                <label class="control-label mt-4" for="Select Your Bank">
+                    <h6>Enter a destination account (<span style="color:red;">*</span>)</h6>
+                </label>
+                <div class="input-group mb-3">
+                    <input formControlName="numeroCompteDest" type="text" placeholder="Destination account" class="form-control" required [ngClass]="{
+                        'invalid':
+                            (transfers.controls[i].get('numeroCompteDest').touched 
+                            && 
+                            transfers.controls[i].get('numeroCompteDest').errors?.required)
+                        }"/>
+                </div>
+                <div class="error" *ngIf="transfers.controls[i].get('numeroCompteDest').touched && transfers.controls[i].get('numeroCompteDest').errors?.required">
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    Destination account is required !
+                </div>
             </div>
  
             <div class="form-group"> 
@@ -25,7 +50,12 @@
                     <h6>Amount (<span style="color:red;">*</span>)</h6>
                </label>
                <div class="input-group"> 
-                   <input type="text" (change)="showData()" formControlName="amount" name="amount" placeholder="Amount..." class="form-control " required>
+                   <input type="text" (change)="showData()" formControlName="amount" name="amount" placeholder="Amount..." class="form-control " required [ngClass]="{
+                    'invalid':
+                        (transfers.controls[i].get('amount').touched 
+                        && 
+                        transfers.controls[i].get('amount').errors?.required)
+                    }">
                </div>
                <div class="error" *ngIf="transfers.controls[i].get('amount').touched && transfers.controls[i].get('amount').errors?.required">
                     <span>
@@ -39,13 +69,37 @@
                     <h6>Secret Key (<span style="color:red;">*</span>)</h6>
                 </label>
                <div class="input-group"> 
-                   <input type="text" name="secret" formControlName="keySecret" placeholder="Secret Key..." class="form-control " required>
+                   <input type="password" (change)="changeisIncorrect(false)" name="secret" formControlName="keySecret" placeholder="Secret Key..." class="form-control " required [ngClass]="{
+                    'invalid':
+                        (transfers.controls[i].get('keySecret').touched 
+                        && 
+                        transfers.controls[i].get('keySecret').errors?.required)
+                        || 
+                        (transfers.controls[i].get('keySecret').touched 
+                        && 
+                        (transfers.controls[i].get('keySecret').errors?.maxlength 
+                        || 
+                        transfers.controls[i].get('keySecret').errors?.minlength))
+                        || isIncorrect.value
+                    }">
                </div>
                <div class="error" *ngIf="transfers.controls[i].get('keySecret').touched && transfers.controls[i].get('keySecret').errors?.required">
                     <span>
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </span>
                     Secret Key is required !
+                </div>
+                <div class="error" *ngIf="transfers.controls[i].get('keySecret').touched && (transfers.controls[i].get('keySecret').errors?.maxlength || transfers.controls[i].get('keySecret').errors?.minlength)">
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    Secret Key must contain 8 caracters !
+                </div>
+                <div class="error" *ngIf="isIncorrect.value">
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    Hosmoa-Key is incorrect !
                 </div>
             </div>
 
