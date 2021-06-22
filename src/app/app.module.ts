@@ -25,14 +25,13 @@ import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefe
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientAuthService } from './services/auth/client-auth.service';
 import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
-<<<<<<< HEAD
+
 import { BalancePipe } from './pipes/balance.pipe';
 import { ChangeKeyComponent } from './components/change-key/change-key.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-=======
+
 import { FormsModule } from '@angular/forms';
 
->>>>>>> baf0cb96081577dd7faf7237859b3c8fbc29dbd2
 @NgModule({
   declarations: [
     AppComponent,
