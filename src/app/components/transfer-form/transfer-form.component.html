@@ -7,32 +7,17 @@
             <div class="x-btn" *ngIf="transfers.length>1" style="cursor: pointer"  (click)="deletecommandeform(i)"><img style="width:20px; height:20px" src="../../../assets/close1.png" alt=""></div>
             <div class="form-group mt-2"> 
                 <label for="username">
-                    <h6>Seelect your Debit account (<span style="color:red;">*</span>)</h6>
+                    <h6>Select your debit account (<span style="color:red;">*</span>)</h6>
                 </label> 
-                <!--<select formControlName="ownerSelectedAccount" class="form-control" style="text-align:center;" id="ccmonth">
-                    <option value="1">Account 1</option>
-                    <option value="2">Account 2</option>
-                    <option value="3">Account 3</option>
-                    <option value="4">Account 4</option> 
-                </select>-->
                 <select formControlName="acountNumber" class="form-control" style="text-align:center;" id="ccmonth">
                     <option *ngFor="let account of accounts" value="{{ account.accountNumber }}">{{account.accountNumber}}</option>
                 </select>
             </div> 
             <label class="control-label mt-4" for="Select Your Bank">
-                <h6>Enter a Destination Account (<span style="color:red;">*</span>)</h6>
+                <h6>Enter a destination account (<span style="color:red;">*</span>)</h6>
             </label>
             <div class="input-group mb-3">
-                <!--<select formControlName="benefeciarySelectedAccont" class="form-control" id="ccmonth" >
-                        <option value="1">Account 1</option>
-                        <option value="2">Account 2</option>
-                        <option value="3">Account 3</option>
-                        <option value="4">Account 4</option> 
-                </select>-->
                 <input formControlName="numeroCompteDest" type="text" placeholder="Destination account" class="form-control" required/>
-                <!--<div class="input-group-append">
-                  <a routerLink="/addBenefeciary" class="btn btn-outline-primary" style="margin-left: 15px;" type="button">New benefeciary</a>
-                </div>-->
             </div>
  
             <div class="form-group"> 
@@ -71,11 +56,9 @@
         <hr class="hr-class"> 
     </div>   
 
-     <!--<div class="card-footer mt-2">
-        <button type="button" class="subscribe btn btn-color btn-block shadow-sm" style="width: 100%;"> 
+     <div class="card-footer">
+        <button type="button" (click)="createTransfer()" class="subscribe btn btn-color btn-block shadow-sm" style="width: 100%;"> 
             Confirm Payment 
-        </button> -->
-    <div class="input-group-append">
-        <a (click)="createTransfer()" class="btn btn-outline-primary" style="margin-left: 15px;" type="button">Confirm Transfer</a>
+        </button>
     </div>
 </div>

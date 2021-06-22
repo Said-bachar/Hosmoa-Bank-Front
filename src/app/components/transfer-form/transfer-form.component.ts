@@ -33,11 +33,10 @@ export class TransferFormComponent implements OnInit,OnDestroy {
    }
 
   ngOnDestroy(): void {
-    document.body.style.backgroundColor='#fff'
+    // document.body.style.backgroundColor='#fff'
   }
 
   ngOnInit(): void {
-    document.body.style.backgroundColor='#29A3DD';
     this.accountService.getCurrentClientAccounts().subscribe(data => {
       this.accounts = data;
     });

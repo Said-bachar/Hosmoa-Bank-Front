@@ -9,11 +9,11 @@
 }
 .nav-item{
 	margin-right: 18px;
+	display: flex;
 }
 .navbar-collapse{
 	margin-left: 40px;
 }
-
 
 @media all and (max-width:1240px)  {
 	.nav-link{
@@ -36,6 +36,9 @@
 	}
 	.navbar-collapse{
 		margin-left: 0px;
+	}
+	.nav-item{
+		display: inline-block;
 	}
 }
 @media all and (max-width:980px)  {

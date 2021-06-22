@@ -14,7 +14,7 @@ export class TransferHistoryComponent implements OnInit {
   constructor(private transferService:TransferService) { }
 
   ngOnInit(): void {
-    document.body.style.backgroundColor='#29A3DD';
+    // document.body.style.backgroundColor='#29A3DD';
     this.transferService.getAllTransfers().subscribe(data => {
       this.transfers = data;
     });

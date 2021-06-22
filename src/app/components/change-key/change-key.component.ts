@@ -40,6 +40,7 @@ export class ChangeKeyComponent implements OnInit {
       icon: 'success',
       title: 'Great!',
       text: 'Your Hosmoa-Key has been updated with success!',
+      confirmButtonColor:'#29A3DD',
     })
     this.router.navigateByUrl('/')
   },err=>{

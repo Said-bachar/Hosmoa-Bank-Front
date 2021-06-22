@@ -22,6 +22,13 @@ export class UserService {
   getUserProfil():Observable<any>{
     return this.http.get(`${environment.BASE_URL}/client/api/profil`)
   }
+  changePassword(payload:{
+    oldPassword: string;
+    newPassword: string;
+    confirmedPassword: string;
+  }):Observable<any>{
+    return this.http.post(`${environment.BASE_URL}/client/api/change_password`,payload)
+  }
   get user():User{
     return this.token.getInfos()?this.token.getInfos().user:null;
   }

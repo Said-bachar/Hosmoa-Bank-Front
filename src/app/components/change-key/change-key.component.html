@@ -13,7 +13,7 @@
                 <div class="card-header">
                     <div class="tab-content">
                         <div class="mt-3">
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui veritatis ab fugiat, nobis itaque voluptate obcaecati numquam vero corporis! Quod?</small>
+                            <strong>HOSMOA-Key is required for the confirmation of your transactions. This is a personal code, do not share it with anyone.</strong>
                         </div>
                         <div id="key" [formGroup]="changeKeyForm" class="tab-pane fade show active pt-3 mt-3">
                             <div class="form-group">
@@ -46,6 +46,7 @@
                                         changeKeyForm.get('keySecret').touched 
                                             && 
                                             changeKeyForm.get('keySecret').errors?.required
+                                            
                                         }">
                                    </div>
                                    <div class="error" *ngIf="changeKeyForm.get('keySecret').touched && changeKeyForm.get('keySecret').errors?.required">
@@ -70,7 +71,8 @@
                                         'invalid':
                                         changeKeyForm.get('newKeySecret').touched 
                                             && 
-                                            changeKeyForm.get('newKeySecret').errors?.required
+                                        changeKeyForm.get('newKeySecret').errors?.required
+                                            
                                         }">
                                    </div>
                                    <div class="error" *ngIf="changeKeyForm.get('newKeySecret').touched && changeKeyForm.get('newKeySecret').errors?.required">
@@ -112,7 +114,7 @@
                     
                             </div> 
                         </div>   
-                        <div class="card-footer mt-2">
+                        <div class="card-footer mt-4">
                             <button type="button" class="btn btn-block btn-primary" [disabled]="changeKeyForm.invalid || changeKeyForm.get('newKeySecretConf').value != changeKeyForm.get('newKeySecret').value" (click)="changeKey()" style="width: 100%;"> 
                                 Validate
                             </button>
