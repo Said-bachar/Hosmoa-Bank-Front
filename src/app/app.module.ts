@@ -30,6 +30,7 @@ import { ChangeKeyComponent } from './components/change-key/change-key.component
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 import { FormsModule } from '@angular/forms';
+import { MultipleTransferComponent } from './components/multiple-transfer/multiple-transfer.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { FormsModule } from '@angular/forms';
     BalancePipe,
     ChangeKeyComponent,
     ChangePasswordComponent,
+    MultipleTransferComponent,
 
   ],
   imports: [

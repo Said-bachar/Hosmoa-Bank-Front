@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 export class TransferComponent implements OnInit ,OnDestroy{
   
   isActive="T";
-  isShowed:boolean = true;
+  isShowed:String = "T";
 
   
   

@@ -1,0 +1,68 @@
+<div class="tab-content">
+    <div id="transfer" class="tab-pane fade show active pt-3 mt-5">
+        <div class="container mb-2">
+            <div class="form-group mt-2"> 
+                <label for="username">
+                    <h6>Select your debit account (<span style="color:red;">*</span>)</h6>
+                </label> 
+                <select formControlName="acountNumber" class="form-control" style="text-align:center;" id="ccmonth">
+                    <option  value=""></option>
+                </select>
+            </div> 
+            
+            <div class="form-group mt-2 d-flex">
+                <div class="input-group mb-3">
+                    <input formControlName="numeroCompteDest" (click)="showBenefeciers()" value="Select one of your benefeciaries" type="button" class="form-control btn-outline-primary"/>
+                </div>
+                <div class="input-group mb-3">
+                    <input formControlName="numeroCompteDest" value="Add new benefeciary" type="button" class="form-control btn-outline-warning" style="margin-left: 2%;"/>
+                </div>
+            </div>
+            <div class="container" *ngIf="showMe">
+                <form action="">
+                    <div class="d-flex">
+                        <div class="mb-4 col-8">
+                            <label for="username">
+                              <h6>Select one benefeciary (<span style="color:red;">*</span>)</h6>
+                            </label> 
+                            <select formControlName="acountNumber" class="form-control" style="text-align:center;" id="ccmonth">
+                              <option  value="">Select one</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" class="form-control" placeholder="Enter transfer anmount"/>
+                        </div>
+                    </div> 
+                </form>            
+            </div>
+ 
+            <div class="form-group"> 
+                <label for="amount">
+                    <h6>Amount (<span style="color:red;">*</span>)</h6>
+               </label>
+               <div class="input-group"> 
+                   <input type="text" formControlName="amount" name="amount" placeholder="Amount..." class="form-control " required>
+               </div>
+            </div>
+            <div class="form-group"> 
+                <label class="mt-4" for="secret">
+                    <h6>Secret Key (<span style="color:red;">*</span>)</h6>
+                </label>
+               <div class="input-group"> 
+                   <input type="password" name="secret" formControlName="keySecret" placeholder="Secret Key..." class="form-control " required>
+               </div>
+            </div>
+
+        </div>   
+        <div class="">
+            <h6 style="color:red;">(<span>*</span>) : required</h6>
+        </div> 
+        <hr class="hr-class"> 
+    </div>   
+
+     <div class="card-footer">
+        <button type="button" class="subscribe btn btn-color btn-block shadow-sm" style="width: 100%;"> 
+            Confirm Payment 
+        </button>
+    </div>
+</div>
