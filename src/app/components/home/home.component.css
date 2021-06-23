@@ -1,0 +1,12 @@
+.cont-infos{
+   position: relative;
+   flex-direction: row;
+}
+
+
+
+@media (max-width:1000px) {
+   .cont-infos{
+      flex-direction: column;
+   }
+}

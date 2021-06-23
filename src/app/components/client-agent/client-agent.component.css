@@ -1,0 +1,44 @@
+.accounts{
+    background-color: #E95314;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    color: #fff;
+}
+.accounts h4{
+    margin-left: 20px;
+}
+.accounts img{
+    margin-right: 20px;
+}
+.agent-info{
+    margin-top: 5%;
+    width: 29%;
+    float: right;
+}
+.cont-agent{
+    margin: 2% 0%;
+    align-items: center;
+}
+.cont-agent img{
+    margin-right: 2%;
+}
+.agent-msg{
+    font-size: 14px;
+}
+.list-group-item{
+    border: none;
+}
+
+@media all and (max-width:1000px) {
+    .agent-info{
+        margin: 0;
+        width: 100%;
+        align-items: center;
+    }
+}
+@media all and (max-width:800px) {
+    .accounts h4{
+        font-size: 18px;
+    }
+}

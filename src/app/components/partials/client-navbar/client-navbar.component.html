@@ -1,0 +1,42 @@
+<nav *ngIf="url!=='/login' && url!=='/welcome' && url!=='/agent-login'" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand navbar-logo" routerLink="/">
+            <img src="../../../../assets/HosmoaBank.png" alt="" style="height: 50px;width: 180px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item d-flex"  [ngClass]="{'nav-active':url==='/transfer'}">
+                    <img src="../../../../assets/virement.png" height="20px" width="20px" alt="" class="mt-2">
+
+                    <a class="nav-link " (click)="changeActive('Virements')" aria-current="page" routerLink="transfer"><strong>Transfers</strong></a>
+                </li>
+                <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/cart'}">
+                    <img src="../../../../assets/recharge_carte.png" height="20px" width="20px" alt="" class="mt-2">
+                    <a class="nav-link" routerLink="#"><strong>Carte Prépayée</strong></a>
+                </li>
+                <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/payment'}">
+                    <img src="../../../../assets/paiement_factures.png" height="20px" width="20px" alt="" class="mt-2">
+                    <a class="nav-link" routerLink="#"><strong>Paiment Factures</strong></a>
+                </li>
+                <li class="nav-item d-flex" [ngClass]="{'nav-active':url==='/recharge'}">
+                    <img src="../../../../assets/releve_bancaire.png" height="20px" width="20px" alt="" class="mt-2">
+                    <a class="nav-link" (click)="changeActive('R')"  routerLink="recharge"><strong>Recharges</strong></a>
+                </li>
+                <li class="nav-item d-flex ml-auto" [ngClass]="{'nav-active':url==='/profile'}">
+                    <a class="nav-link" routerLink="/profile"><strong><i>Bienvenue</i>{{user.firstName}} {{user.lastName}}</strong></a>
+                </li>
+                <li class="nav-item d-flex justify-content-between">
+                    <a href="#notification" class="nav-link">
+                        <img src="../../../../assets/notifications.png" height="20px" width="20px" alt="" class="mt-2">
+                    </a>
+                    <a routerLink="/login" class="nav-link">
+                        <img src="../../../../assets/off.png" height="22px" width="22px" alt="" class="mt-2">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
