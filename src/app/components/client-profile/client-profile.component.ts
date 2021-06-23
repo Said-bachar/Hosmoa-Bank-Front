@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-client-profile',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientProfileComponent implements OnInit {
 
-  constructor() { }
-
+  user: User;
+  constructor(private userService:UserService) { }
+  urlImg:string='../../../assests/user_profile.png';
   ngOnInit(): void {
+     this.userService.getUserProfil().subscribe((user:User) => {
+      this.user = user;
+    })
   }
 
 }

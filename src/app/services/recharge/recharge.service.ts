@@ -17,7 +17,15 @@ export class RechargeService {
     return this.http.get<Recharge[]>(this.BASE_URL);
   }
 
-  createRecharge(recharge: any) {
-    return this.http.post<Recharge>(this.BASE_URL + "/create", recharge);
+  createRecharge(
+    payload: {
+      accountNumber: string;
+      keySecret: string;
+      operator:string;
+      phoneNumber:string;
+      amount:Number
+    }
+  ) {
+    return this.http.post<Recharge>(this.BASE_URL + "/create", payload);
   }
 }

@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   login(){
     this.authService.login(this.loginForm.value.email,this.loginForm.value.password)
     .subscribe(res=>{
-      console.log(res.id,res.token)
       this.handleResponse({id:res.id,token:res.token})
     },err=>{
       console.log(err)
@@ -43,10 +42,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   handleResponse(data) {
     this.token.handle(data);
     this.userServ.changeAuthStatus(true);
-    
-    
-    
-    //if(this.userServ.user.role === 2) return this.router.navigateByUrl('/admin');
     return this.router.navigateByUrl('/');
   }
 }

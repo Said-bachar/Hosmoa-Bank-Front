@@ -13,28 +13,71 @@
                     <h1 class="register-heading">Recharge Form</h1>
                     <div class="row register-form">
                         <div class="col-md-12">
+                            
                             <div class="form-group mb-4">
-                                <select formControlName="account" class="form-control" required>
-                                    <option class="hidden"  selected disabled>Please select your account</option>
-                                    <option>Account 1</option>
-                                    <option>Account 2</option>
-                                    <option>Account 3</option>
+                                <label for="">Select your account</label>
+                                <select formControlName="accountNumber" class="form-control" required [ngClass]="{
+                                    'invalid':
+                                        (rechargeForm.get('accountNumber').touched 
+                                        && 
+                                        rechargeForm.get('accountNumber').errors?.required)
+                                    }">
+                                    <!-- <option class="hidden"  selected disabled>Please select your account</option> -->
+                                    <option *ngFor="let account of myAccounts" value="{{account.accountNumber}}">{{account.accountNumber}}</option>
                                 </select>
+                                <div class="error" *ngIf="rechargeForm.get('accountNumber').touched && rechargeForm.get('accountNumber').errors?.required">
+                                    <span>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </span>
+                                    Account Number is required !
+                                </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" formControlName="key" class="form-control" placeholder="Your secret key" value="" required/>
+                                <input type="password" (ngModelChange)="changeisIncorrect(false)" formControlName="keySecret" class="form-control" placeholder="Your secret key" value="" required [ngClass]="{
+                                    'invalid':
+                                        (rechargeForm.get('keySecret').touched 
+                                        && 
+                                        rechargeForm.get('keySecret').errors?.required)
+                                        || 
+                                        (rechargeForm.get('keySecret').touched 
+                                        && 
+                                        (rechargeForm.get('keySecret').errors?.maxlength 
+                                        || 
+                                        rechargeForm.get('keySecret').errors?.minlength))
+                                        || isIncorrect.value
+                                    }"/>
                             </div>
-                            <input type="submit" (click)="next()" class="btnNext"  value="Next >"/> 
+                            <div class="error" *ngIf="rechargeForm.get('keySecret').touched && rechargeForm.get('keySecret').errors?.required">
+                                <span>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </span>
+                                Key Secret is required !
+                            </div>
+                            <div class="error" *ngIf="(rechargeForm.get('keySecret').errors?.maxlength || rechargeForm.get('keySecret').errors?.minlength)">
+                                <span>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </span>
+                               Hosmoa-Key must contain 8 caracters !
+                            </div>
+                            <div class="error" *ngIf="isIncorrect.value">
+                                <span>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </span>
+                                Hosmoa-Key is incorrect !
+                            </div>
+                            <input type="submit" [disabled]="rechargeForm.get('keySecret').errors?.required || rechargeForm.get('accountNumber').errors?.required" (click)="next()" class="btnNext"  value="Next >>"/> 
                         </div>
                     </div>
                 </div>
+
+                <!-- Next form -->
                 <div class="tab-pane fade show active" *ngIf="credentialsVerified" id="profile">
                     <h1 class="register-heading">Recharge Form</h1>
                     <div class="row register-form">
                        
                         <div class="col-md-12">
                             <h3>Choose the operator</h3>
-                            <form >
+                            <div >
                                 <div class="form-check">
                                     <input formControlName="operator" class="form-check-input" value="maroctelecom" type="radio" name="operator" id="maroctelecom" checked>
                                     <img src="../../../../assets/Maroc_telecom_logo.svg" alt="" style="height: 20px;width: 20px; margin-right: 5px;">
@@ -56,25 +99,49 @@
                                         Orange
                                     </label>
                                   </div>
-                            </form>
+                                </div>
                             <div class="form-group mb-4">
-                                <input type="text" formControlName="phone" class="form-control" placeholder="Phone number (Ex : 0612345678)" value="" required/>
+                                <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Phone number (Ex : 0612345678)" value="" required [ngClass]="{
+                                    'invalid':
+                                        (rechargeForm.get('phoneNumber').touched 
+                                        && 
+                                        rechargeForm.get('phoneNumber').errors?.required)
+                                    }"/>
+                                <div class="error" *ngIf="rechargeForm.get('phoneNumber').touched && rechargeForm.get('phoneNumber').errors?.required">
+                                    <span>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </span>
+                                    Phone Number is required !
+                                </div>
                             </div>
+                            
                             <div class="form-group">
-                                <select class="form-control" formControlName="amount" required>
-                                    <option class="hidden"  selected disabled>Please select recharge amount</option>
+                                <label for="">Please select recharge amount</label>
+                                <select class="form-control" formControlName="amount" required [ngClass]="{
+                                    'invalid':
+                                        (rechargeForm.get('amount').touched 
+                                        && 
+                                        rechargeForm.get('amount').errors?.required)
+                                    }">
+                                    
                                     <option value="10">10</option>
                                     <option value="20">20</option>
                                     <option value="30">30</option>
                                     <option value="50">50</option>
-                                    <option value="100">100</option>
+                                    <option value="100">100</option> 
                                     <option value="200">200</option>
                                 </select>
                             </div>
+                            <div class="error" *ngIf="rechargeForm.get('amount').touched && rechargeForm.get('amount').errors?.required">
+                                <span>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </span>
+                                Amount is required !
+                            </div>
                         </div> 
                         <div class="d-flex justify-content-between">
-                            <input type="submit" (click)="pred()" class="btnPred float-left"  value="< Predious"/>
-                            <input type="submit" (click)="recharge()" class="btnV float-right" value="Validate"/>
+                            <input type="submit" (click)="pred()" class="btnPred float-left"  value="<< Predious"/>
+                            <input type="submit" [disabled]="rechargeForm.invalid" (click)="createRecharge()" class="btnV float-right" value="Validate"/>
                         </div>
                     </div>
                 </div>

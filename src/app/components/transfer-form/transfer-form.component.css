@@ -16,7 +16,7 @@
 }
 .hr-class{
     border: solid 2px #E95314;
-    margin:10% 0;
+    margin:5% 0;
 }
 /* select option{
     align-items: center;
@@ -28,4 +28,7 @@
     color:#dc3545;
     margin-left:20px;
     margin-bottom:10px;
+  }
+  .invalid{
+    border: solid 1.5px #dc3545;
   }

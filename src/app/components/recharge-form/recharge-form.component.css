@@ -157,3 +157,14 @@
   right: 10px;
   left: auto;
 }
+.error{
+  width:100%;
+  margin-top:.25rem;
+  font-size:80%;
+  color:#dc3545;
+  margin-left:20px;
+  margin-bottom:10px;
+}
+.invalid{
+  border: solid 1.5px #dc3545;
+}

@@ -1,26 +1,24 @@
-<div class="container">
-    <div class="col-12">
+<div class="col-12">
         <table class="table table-bordered  mt-4">
             <thead>
               <tr class="table-primary">
                 <th scope="col">Id</th>
-                <th scope="col">Account</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
                 <th scope="col">creationDate</th>
                 <th scope="col">Amount</th>
-                <th scope="col">Pattern</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">2</th>
-                <td>7418529637825</td>
-                <td>25-08-2020</td>
-                <th scope="row">8000.00</th>
-                <td>MTFF</td>
-                <td>Saved</td>
+              <tr *ngFor="let transfer of transfers">
+                <th scope="row">{{transfer.id}}</th>
+                <td>{{transfer.account.accountNumber}}</td>
+                <td>{{transfer.destAccount.accountNumber}}</td>
+                <td>{{transfer.dateDeVirement}}</td>
+                <th scope="row">{{transfer.montant}}</th>
+                <td>{{transfer.status}}</td>
               </tr>
             </tbody>
         </table>
-    </div>
 </div>

@@ -1,32 +1,32 @@
-<div class="agent-info">
+<div class="agent-info" *ngIf="myAgent!==undefined && myAgency!==undefined">
     <div class="accounts d-flex justify-content-between">
-        <h4>Joindre mon conseiller</h4>
+        <h4>Contact my agent</h4>
         <img src="../../../assets/ico_conseiller.png" height="30px" width="30px" alt="">
     </div>
     <div class="d-flex cont-agent">
         <img src="../../../assets/pic_adviser.jpg" height="50px" width="50px" alt="">
-        <h4>Hamza Oudoud</h4>
+        <h4>{{myAgent.lastName}} {{myAgent.firstName}}</h4>
     </div>
     <ul class="list-group">
         <li class="list-group-item">
             <img src="../../../assets/ico_mobile_adv.png" style="margin-right: 1%;" height="25px" width="25px" alt="">
-            <span>0645789564</span>
+            <span>{{myAgent.phoneNumber}}</span>
         </li>
         <li  class="list-group-item">
             <img src="../../../assets/ico_email_adv.png" style="margin-right: 1%;" height="25px" width="25px" alt="">
-            <span>test@gmail.com</span>
+            <span>{{myAgent.email}}</span>
         </li>
-        <li  class="list-group-item">
+        <!-- <li  class="list-group-item">
             <img src="../../../assets/ico_phone_adv.png" style="margin-right: 1%;" height="25px" width="25px" alt="">
             <span>0656231457</span>
         </li>
         <li  class="list-group-item">
             <img src="../../../assets/ico_fax_adv.png" style="margin-right: 1%;" height="25px" width="25px" alt="">
             <span>0523564857</span>
-        </li>
+        </li> -->
         <li  class="list-group-item">
             <img src="../../../assets/ico_office_adv.png" style="margin-right: 1%;" alt="">
-            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, porro.</span>
+            <span>{{myAgency.city.name}}</span>
         </li>
     </ul>
     <p class="agent-msg"><strong>Nos conseilleurs sont joignables du lundi au vendredi de 8h à 17h</strong></p>

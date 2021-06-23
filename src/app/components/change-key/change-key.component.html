@@ -1,0 +1,145 @@
+
+
+<div class="container py-5">
+    <!-- For demo purpose -->
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-6" style="font-size: 35px; font-weight:bold">Change your Hosmoa-Key</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mx-auto shadow-lg rounded">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="tab-content">
+                        <div class="mt-3">
+                            <strong style="color: #E95314;">HOSMOA-Key is required for the confirmation of your transactions. This is a personal code, do not share it with anyone.</strong>
+                        </div>
+                        <div id="key" [formGroup]="changeKeyForm" class="tab-pane fade show active pt-3 mt-3">
+                            <div class="form-group">
+                                <label for="keySecret">
+                                    <h6>Account Number</h6>
+                               </label>
+                                <select formControlName="accountNumber" class="form-control" required [ngClass]="{
+                                    'invalid':
+                                    changeKeyForm.get('accountNumber').touched 
+                                        && 
+                                        changeKeyForm.get('accountNumber').errors?.required
+                                    }">
+                                    <option class="hidden"  selected disabled>Please select your account</option>
+                                    <option *ngFor="let account of myAccounts" value="{{account.accountNumber}}">{{account.accountNumber}}</option>
+                                </select>
+                                <div class="error" *ngIf="changeKeyForm.get('accountNumber').touched && changeKeyForm.get('accountNumber').errors?.required">
+                                    <span>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </span>
+                                    Account Number is required !!!
+                                </div>
+                            </div>
+                                <div class="form-group mt-3"> 
+                                    <label for="keySecret">
+                                        <h6>Old Hosmoa-Key</h6>
+                                   </label>
+                                   <div class="input-group" > 
+                                       <input type="password" (ngModelChange)="changeStatus(false)" formControlName="keySecret" name="keySecret" placeholder="Old Hosmoa-Key..." class="form-control " required [ngClass]="{
+                                        'invalid':
+                                        changeKeyForm.get('keySecret').touched 
+                                            && 
+                                            changeKeyForm.get('keySecret').errors?.required
+                                            || keyIncorrect
+                                            
+                                        }">
+                                   </div>
+                                   <div class="error" *ngIf="changeKeyForm.get('keySecret').touched && changeKeyForm.get('keySecret').errors?.required">
+                                        <span>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </span>
+                                        Old Hosmoa-Key is required !
+                                    </div>
+                                    <div class="error" *ngIf="keyIncorrect">
+                                        <span>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </span>
+                                        Old Hosmoa-Key is incorrect!
+                                    </div>
+                                    <div class="error" *ngIf="changeKeyForm.get('keySecret').errors?.maxlength || changeKeyForm.get('keySecret').errors?.minlength">
+                                        <span>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </span>
+                                        Secret Key must contain 8 caracters !
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3"> 
+                                    <label for="newKeySecret">
+                                        <h6>New Hosmoa-Key</h6>
+                                   </label>
+                                   <div class="input-group"> 
+                                       <input type="password" formControlName="newKeySecret" name="newKeySecret" placeholder="New Hosmoa-Key..." class="form-control " required [ngClass]="{
+                                        'invalid':
+                                        changeKeyForm.get('newKeySecret').touched 
+                                            && 
+                                        changeKeyForm.get('newKeySecret').errors?.required
+                                            
+                                        }">
+                                   </div>
+                                   <div class="error" *ngIf="changeKeyForm.get('newKeySecret').touched && changeKeyForm.get('newKeySecret').errors?.required">
+                                        <span>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </span>
+                                        New Hosmoa-Key is required !
+                                    </div>
+                                    <div class="error" *ngIf="changeKeyForm.get('newKeySecret').errors?.maxlength || changeKeyForm.get('newKeySecret').errors?.minlength">
+                                        <span>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </span>
+                                        Secret Key must contain 8 caracters !
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3"> 
+                                    <label for="newKeySecretConf">
+                                        <h6>Confirm Hosmoa-Key</h6>
+                                    </label>
+                                   <div class="input-group"> 
+                                       <input type="password" formControlName="newKeySecretConf" name="newKeySecretConf" placeholder="New Hosmoa-Key Confirmation..." class="form-control " required [ngClass]="{
+                                        'invalid':
+                                            (changeKeyForm.get('newKeySecretConf').touched 
+                                            && 
+                                            changeKeyForm.get('newKeySecretConf').errors?.required)
+                                            ||
+                                            (changeKeyForm.get('newKeySecretConf').touched 
+                                            &&
+                                            changeKeyForm.get('newKeySecretConf').value != changeKeyForm.get('newKeySecret').value)
+                                        }">
+                                   </div>
+                                   <div class="error" *ngIf="changeKeyForm.get('newKeySecretConf').touched && changeKeyForm.get('newKeySecretConf').errors?.required">
+                                        <span>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </span>
+                                        This field is required !
+                                    </div>
+                                    <div class="error" *ngIf="changeKeyForm.get('newKeySecretConf').touched && changeKeyForm.get('newKeySecretConf').value != changeKeyForm.get('newKeySecret').value">
+                                        <span>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </span>
+                                        Two keys are not the same !
+                                    </div>
+                                    <div class="error" *ngIf="changeKeyForm.get('newKeySecretConf').touched && changeKeyForm.get('newKeySecretConf').errors?.maxLength && changeKeyForm.get('newKeySecretConf').errors?.minLength">
+                                        <span>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </span>
+                                        Secret Key must contain 8 caracters !
+                                    </div>
+                                </div>
+                    
+                            </div> 
+                        </div>   
+                        <div class="card-footer mt-4">
+                            <button type="button" class="btn btn-block btn-primary" [disabled]="changeKeyForm.invalid || changeKeyForm.get('newKeySecretConf').value != changeKeyForm.get('newKeySecret').value" (click)="changeKey()" style="width: 100%;"> 
+                                Validate
+                            </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+</div>
+

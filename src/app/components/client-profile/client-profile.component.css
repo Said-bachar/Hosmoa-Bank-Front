@@ -8,3 +8,7 @@
 .form-group strong {
     color: #E95314;
 }
+.invalid{
+    border: solid 1.5px #dc3545;
+  }
+

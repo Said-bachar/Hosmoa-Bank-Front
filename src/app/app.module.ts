@@ -14,17 +14,24 @@ import { AccountsComponent } from './components/accounts/accounts.component';
 import { ClientAgentComponent } from './components/client-agent/client-agent.component';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 
-import { NotificationComponent } from './components/notification/notification.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TransferFormComponent } from './components/transfer-form/transfer-form.component';
 import { TransferHistoryComponent } from './components/transfer-history/transfer-history.component';
 import { RechargeFormComponent } from './components/recharge-form/recharge-form.component';
 import { RechargesComponent } from './components/recharges/recharges.component';
+
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { AddBenefeciaryComponent } from './components/add-benefeciary/add-benefeciary.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientAuthService } from './services/auth/client-auth.service';
 import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
+
+import { BalancePipe } from './pipes/balance.pipe';
+import { ChangeKeyComponent } from './components/change-key/change-key.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +40,6 @@ import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
     ClientNavbarComponent,
 
     TransferComponent,
-    NotificationComponent,
-    DashboardComponent,
     TransferFormComponent,
     TransferHistoryComponent,
 
@@ -45,14 +50,16 @@ import { JwtInterceptor } from './services/interceptor/jwt.interceptor';
     RechargesComponent,
     WelcomePageComponent,
     AddBenefeciaryComponent,
-    
+    BalancePipe,
+    ChangeKeyComponent,
+    ChangePasswordComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
     
   ],
