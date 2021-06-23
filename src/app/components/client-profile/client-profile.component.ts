@@ -11,7 +11,7 @@ export class ClientProfileComponent implements OnInit {
 
   user: User;
   constructor(private userService:UserService) { }
-  urlImg:string='../../../assets/user_profile.png';
+  urlImg:string='../../../assests/user_profile.png';
   ngOnInit(): void {
      this.userService.getUserProfil().subscribe((user:User) => {
       this.user = user;

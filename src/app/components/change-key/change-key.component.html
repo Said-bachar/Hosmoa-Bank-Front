@@ -41,11 +41,12 @@
                                         <h6>Old Hosmoa-Key</h6>
                                    </label>
                                    <div class="input-group" > 
-                                       <input type="text" (change)="changeStatus(false)" formControlName="keySecret" name="keySecret" placeholder="Old Hosmoa-Key..." class="form-control " required [ngClass]="{
+                                       <input type="password" (ngModelChange)="changeStatus(false)" formControlName="keySecret" name="keySecret" placeholder="Old Hosmoa-Key..." class="form-control " required [ngClass]="{
                                         'invalid':
                                         changeKeyForm.get('keySecret').touched 
                                             && 
                                             changeKeyForm.get('keySecret').errors?.required
+                                            || keyIncorrect
                                             
                                         }">
                                    </div>
@@ -53,7 +54,7 @@
                                         <span>
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </span>
-                                        This field is required !
+                                        Old Hosmoa-Key is required !
                                     </div>
                                     <div class="error" *ngIf="keyIncorrect">
                                         <span>
@@ -61,7 +62,7 @@
                                         </span>
                                         Old Hosmoa-Key is incorrect!
                                     </div>
-                                    <div class="error" *ngIf="changeKeyForm.get('keySecret').touched && changeKeyForm.get('keySecret').errors?.maxLength && changeKeyForm.get('keySecret').errors?.minLength">
+                                    <div class="error" *ngIf="changeKeyForm.get('keySecret').errors?.maxlength || changeKeyForm.get('keySecret').errors?.minlength">
                                         <span>
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </span>
@@ -73,7 +74,7 @@
                                         <h6>New Hosmoa-Key</h6>
                                    </label>
                                    <div class="input-group"> 
-                                       <input type="text" formControlName="newKeySecret" name="newKeySecret" placeholder="New Hosmoa-Key..." class="form-control " required [ngClass]="{
+                                       <input type="password" formControlName="newKeySecret" name="newKeySecret" placeholder="New Hosmoa-Key..." class="form-control " required [ngClass]="{
                                         'invalid':
                                         changeKeyForm.get('newKeySecret').touched 
                                             && 
@@ -87,7 +88,7 @@
                                         </span>
                                         New Hosmoa-Key is required !
                                     </div>
-                                    <div class="error" *ngIf="changeKeyForm.get('newKeySecret').touched && changeKeyForm.get('newKeySecret').errors?.maxLength && changeKeyForm.get('newKeySecret').errors?.minLength">
+                                    <div class="error" *ngIf="changeKeyForm.get('newKeySecret').errors?.maxlength || changeKeyForm.get('newKeySecret').errors?.minlength">
                                         <span>
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </span>
@@ -99,7 +100,7 @@
                                         <h6>Confirm Hosmoa-Key</h6>
                                     </label>
                                    <div class="input-group"> 
-                                       <input type="text" formControlName="newKeySecretConf" name="newKeySecretConf" placeholder="New Hosmoa-Key Confirmation..." class="form-control " required [ngClass]="{
+                                       <input type="password" formControlName="newKeySecretConf" name="newKeySecretConf" placeholder="New Hosmoa-Key Confirmation..." class="form-control " required [ngClass]="{
                                         'invalid':
                                             (changeKeyForm.get('newKeySecretConf').touched 
                                             && 

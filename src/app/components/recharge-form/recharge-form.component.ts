@@ -81,6 +81,7 @@ export class RechargeFormComponent implements OnInit {
       );
   }
   changeisIncorrect(value: boolean) {
+    console.log("...")
     this.isIncorrect.next(value)
   }
 

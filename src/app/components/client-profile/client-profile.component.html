@@ -14,8 +14,8 @@
                               <div class="form-group row">
                                 <label for="name" class="col-4 col-form-label"><strong>Picture</strong></label> 
                                 <div class="col-8">
-                                 <img src="{{user.picture}}" *ngIf="user.picture!==undefined" class="rounded-circle shadow-lg mb-4" width="150" alt="">
-                                 <img src="{{urlImg}}" *ngIf="user.picture===undefined" class="rounded-circle shadow-lg mb-4" width="150" alt="">
+                                 <img src="{{user.picture}}" *ngIf="user.picture!=='' " class="rounded-circle shadow-lg mb-4" width="150" alt="....">
+                                 <img src="{{urlImg}}" *ngIf="user.picture==='' " class="rounded-circle shadow-lg mb-4" width="150" alt="...">
                                 </div>
                               </div>
 

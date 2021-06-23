@@ -50,7 +50,7 @@
                     <h6>Amount (<span style="color:red;">*</span>)</h6>
                </label>
                <div class="input-group"> 
-                   <input type="text" (change)="showData()" formControlName="amount" name="amount" placeholder="Amount..." class="form-control " required [ngClass]="{
+                   <input type="text" formControlName="amount" name="amount" placeholder="Amount..." class="form-control " required [ngClass]="{
                     'invalid':
                         (transfers.controls[i].get('amount').touched 
                         && 
@@ -69,7 +69,7 @@
                     <h6>Secret Key (<span style="color:red;">*</span>)</h6>
                 </label>
                <div class="input-group"> 
-                   <input type="password" (change)="changeisIncorrect(false)" name="secret" formControlName="keySecret" placeholder="Secret Key..." class="form-control " required [ngClass]="{
+                   <input type="password" (ngModelChange)="changeisIncorrect(false)" name="secret" formControlName="keySecret" placeholder="Secret Key..." class="form-control " required [ngClass]="{
                     'invalid':
                         (transfers.controls[i].get('keySecret').touched 
                         && 
