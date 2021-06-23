@@ -5,43 +5,42 @@
                 <label for="username">
                     <h6>Select your debit account (<span style="color:red;">*</span>)</h6>
                 </label> 
-                <select formControlName="acountNumber" class="form-control" style="text-align:center;" id="ccmonth">
+                <select  class="form-control" style="text-align:center;" id="ccmonth">
                     <option  value=""></option>
                 </select>
             </div> 
             
             <div class="form-group mt-2 d-flex">
                 <div class="input-group mb-3">
-                    <input formControlName="numeroCompteDest" (click)="showBenefeciers()" value="Select one of your benefeciaries" type="button" class="form-control btn-outline-primary"/>
+                    <input  (click)="show()" value="Select one of your benefeciaries" type="button" class="form-control btn-outline-primary"/>
                 </div>
                 <div class="input-group mb-3">
-                    <input formControlName="numeroCompteDest" value="Add new benefeciary" type="button" class="form-control btn-outline-warning" style="margin-left: 2%;"/>
+                    <input  value="Add new benefeciary" type="button" class="form-control btn-outline-warning" style="margin-left: 2%;"/>
                 </div>
             </div>
-            <div class="container" *ngIf="showMe">
-                <form action="">
-                    <div class="d-flex">
-                        <div class="mb-4 col-8">
-                            <label for="username">
+                <form [formGroup]="MultipelTransferBenefForm" class="mb-4" *ngIf="showMe">
+                    <label for="username">
                               <h6>Select one benefeciary (<span style="color:red;">*</span>)</h6>
-                            </label> 
-                            <select formControlName="acountNumber" class="form-control" style="text-align:center;" id="ccmonth">
-                              <option  value="">Select one</option>
+                    </label> 
+                    <div class="d-flex justify-content-between">
+                        
+                        <div class= "col-8">
+                            <select  class="form-control" style="text-align:center;" id="ccmonth" formControlName="idBeneficiary">
+                              <option  value=""></option>
                             </select>
                         </div>
-                        <div class="col-4">
-                            <input type="text" class="form-control" placeholder="Enter transfer anmount"/>
+                        <div class="col-3">
+                            <input type="text" formControlName="amount" class="form-control" placeholder="Enter transfer anmount"/>
                         </div>
                     </div> 
-                </form>            
-            </div>
- 
+                    <button class="btn btn-block btn-primary mt-3" (click)="addMultipelTransferBenef()" style="width: 100%;">Validate</button>
+                </form>    
             <div class="form-group"> 
                 <label for="amount">
                     <h6>Amount (<span style="color:red;">*</span>)</h6>
                </label>
                <div class="input-group"> 
-                   <input type="text" formControlName="amount" name="amount" placeholder="Amount..." class="form-control " required>
+                   <input type="text"  name="amount" placeholder="Amount..." class="form-control " required>
                </div>
             </div>
             <div class="form-group"> 
@@ -49,7 +48,7 @@
                     <h6>Secret Key (<span style="color:red;">*</span>)</h6>
                 </label>
                <div class="input-group"> 
-                   <input type="password" name="secret" formControlName="keySecret" placeholder="Secret Key..." class="form-control " required>
+                   <input type="password" name="secret" placeholder="Secret Key..." class="form-control " required>
                </div>
             </div>
 

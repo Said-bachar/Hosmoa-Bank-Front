@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'',component:HomeComponent,canActivate:[AuthGuard]},
   {path:'changeKey',component:ChangeKeyComponent,canActivate:[AuthGuard]},
   {path:'changePassword',component:ChangePasswordComponent,canActivate:[AuthGuard]},
-  {path:'transfer',component:TransferComponent}, //,canActivate:[AuthGuard]},
+  {path:'transfer',component:TransferComponent, canActivate:[AuthGuard]},
   {path:'recharge',component:RechargeFormComponent,canActivate:[AuthGuard]},
   {path:'profile',component:ClientProfileComponent,canActivate:[AuthGuard]},
   {path:'addBenefeciary',component:AddBenefeciaryComponent,canActivate:[AuthGuard]},
