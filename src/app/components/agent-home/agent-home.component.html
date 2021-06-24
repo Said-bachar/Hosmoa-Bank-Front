@@ -1,0 +1,39 @@
+<div class="container-lg ">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Client <b>Details</b></h2></div>
+                    <div class="col-sm-4">
+                        <button type="button" (click)="edit()" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered " style="width:auto;">
+                <thead>
+                    <tr>
+                        <th>first_name</th>
+                        <th>last_name</th>
+                        <th>email</th>
+                        <th>city</th>
+                        <th>phone_number</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let client of clients ">
+                    <tr>
+                        <th scope="row">{{client.firstName}}</th>
+                        <td>{{client.lastName}}</td>
+                        <td>{{client.email}}</td>
+                        <td>{{client.city}}</td>
+                        <td>{{client.phoneNumber}}</td>
+                        <td>
+                            <!--<button class="edit" (click)="edit()" data-toggle="tooltip"><i class="material-icons" >&#xE254;</i></button>-->
+                            <button class="delete" (click)="delete(client.id)"  data-toggle="tooltip"><i class="material-icons">&#xE872;</i></button>
+                        </td>
+                    </tr>       
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>     

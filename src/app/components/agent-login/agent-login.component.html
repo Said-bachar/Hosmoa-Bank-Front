@@ -1,0 +1,95 @@
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="assets/images/vectorpaint.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3 class="text-primary display-4 text-center" style="font-family:'Gill Sans', sans-serif;font-size: 35px;">Agent Login</h3>
+              
+            </div>
+            <form  [formGroup]="loginForm" (submit)="login()">
+              <div class="wrap-input100 has-validation form-group first" >
+                
+                <input formControlName="email" ngModel class="input100 form-control" name="email" type="text" name="email" placeholder="Email" required 
+                [ngClass]="{
+                    'invalide':
+                        loginForm.get('email').touched 
+                        && 
+                        loginForm.get('email').errors?.required
+                    }">
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <!--<i class="fa fa-user" aria-hidden="true"></i>-->
+                </span>
+                
+                <span *ngIf="loginForm.get('email').touched 
+                    && 
+                    loginForm.get('email').errors?.required"
+                >
+                   <i class="symbol-error fa fa-exclamation" aria-hidden="true"></i>
+                </span>
+            </div>
+            <div class="error" *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">
+                <span>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+                Please choose a email.
+            </div>
+              
+              <div class="wrap-input100 form-group last mb-4" >
+                <input formControlName="password" 
+                ngModel 
+                class="input100 form-control" 
+                name="password" 
+                type="password" 
+                name="pass" 
+                placeholder="Password" 
+                required 
+                [ngClass]="{
+                    'invalide':loginForm.get('password').invalid  
+                    && (
+                        loginForm.get('password').touched 
+                        &&
+                        loginForm.get('password').errors?.required)
+                    }"
+                >
+                <span class="focus-input100"></span>
+                <span *ngIf="loginForm.get('password').touched 
+                    && 
+                    loginForm.get('password').errors?.required"
+                >
+                   <i class="symbol-error fa fa-exclamation" aria-hidden="true"></i>
+                </span>
+                <span class="symbol-input100">
+                    <!--<i class="fa fa-lock" aria-hidden="true"></i>-->
+                </span>
+            </div>
+            <div class="error" *ngIf="loginForm.get('password').touched && loginForm.get('password').errors?.required" >
+                <span>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+                Please choose a password.
+            </div>
+              
+              
+
+              <div class="container-login100-form-btn btn btn-block" style="margin-left :29%">
+                <button class="login100-form-btn btn btn-block" [disabled]="loginForm.invalid" style="background-color: rgb(233,83,18);color: white;">
+                    Login
+                </button>
+            </div>
+
+            
+            </form>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>

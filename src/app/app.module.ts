@@ -30,6 +30,9 @@ import { ChangeKeyComponent } from './components/change-key/change-key.component
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 import { FormsModule } from '@angular/forms';
+import { AgentLoginComponent } from './components/agent-login/agent-login.component';
+import { AgentHomeComponent } from './components/agent-home/agent-home.component';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
 
 
 @NgModule({
@@ -53,6 +56,9 @@ import { FormsModule } from '@angular/forms';
     BalancePipe,
     ChangeKeyComponent,
     ChangePasswordComponent,
+    AgentLoginComponent,
+    AgentHomeComponent,
+    EditFormComponent,
 
   ],
   imports: [

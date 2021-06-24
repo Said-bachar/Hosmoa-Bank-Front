@@ -1,5 +1,5 @@
 export class Client {
-    private id:BigInt;
+    private id:number;
     public email:string;
     public password:string;
     // public role:Role;
@@ -8,7 +8,7 @@ export class Client {
     public picture:string;
     public adress:string;
     public city:string;
-    public codePostale:BigInt;
+    public codePostale:number;
     // public agent:Agent;
     // public agency:Agency;
 }

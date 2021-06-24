@@ -14,6 +14,11 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { AfterAuthGuard } from './guards/after-auth.guard';
 import { ChangeKeyComponent } from './components/change-key/change-key.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { AgentLoginComponent } from './components/agent-login/agent-login.component';
+import { AgentHomeComponent } from './components/agent-home/agent-home.component';
+import { AfterAgentauthGuard } from './guards/after-agentauth.guard';
+import { AgentAuthGuard } from './guards/agentauth.guard';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
 
 
 const routes: Routes = [
@@ -26,6 +31,9 @@ const routes: Routes = [
   {path:'recharge',component:RechargeFormComponent,canActivate:[AuthGuard]},
   {path:'profile',component:ClientProfileComponent,canActivate:[AuthGuard]},
   {path:'addBenefeciary',component:AddBenefeciaryComponent,canActivate:[AuthGuard]},
+  {path:'agent-login',component:AgentLoginComponent,canActivate:[AfterAgentauthGuard]},
+  {path:'agent-home',component:AgentHomeComponent,canActivate:[AgentAuthGuard]},
+  {path:'clients-form',component:EditFormComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({

@@ -9,10 +9,10 @@ export class User {
     accounts?: Account[];
     picture?: string;
     phoneNumber?: string;
-    agency: Agency;
-    codePostale:string;
+    agency?: Agency;
+    codePostale?:string;
     city:string;
-    adress:string;
+    adress?:string;
   
     _2FaEnabled: boolean;
 }
