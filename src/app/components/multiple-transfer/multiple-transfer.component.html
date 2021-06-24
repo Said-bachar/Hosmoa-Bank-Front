@@ -1,12 +1,12 @@
 <div class="tab-content">
     <div id="transfer" class="tab-pane fade show active pt-3 mt-5">
-        <div class="container mb-2">
+        <div class="container mb-2" [formGroup]="MultipelTransferForm">
             <div class="form-group mt-2"> 
-                <label for="username">
+                <label >
                     <h6>Select your debit account (<span style="color:red;">*</span>)</h6>
                 </label> 
-                <select  class="form-control" style="text-align:center;" id="ccmonth">
-                    <option  value=""></option>
+                <select formControlName="acountNumber" class="form-control" style="text-align:center;" id="ccmonth">
+                    <option  *ngFor="let account of accounts" value="{{ account.accountNumber }}">{{account.accountNumber}}</option>
                 </select>
             </div> 
             
@@ -18,29 +18,62 @@
                     <input  value="Add new benefeciary" type="button" class="form-control btn-outline-warning" style="margin-left: 2%;"/>
                 </div>
             </div>
-                <form [formGroup]="MultipelTransferBenefForm" class="mb-4" *ngIf="showMe">
-                    <label for="username">
-                              <h6>Select one benefeciary (<span style="color:red;">*</span>)</h6>
-                    </label> 
-                    <div class="d-flex justify-content-between">
+
+            <form [formGroup]="MultipelTransferBenefForm" class="mb-4" *ngIf="showMe">
+                <label >
+                    <h6>Select one benefeciary (<span style="color:red;">*</span>)</h6>
+                </label> 
+                <div class="d-flex">
                         
-                        <div class= "col-8">
-                            <select  class="form-control" style="text-align:center;" id="ccmonth" formControlName="idBeneficiary">
-                              <option  value=""></option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <input type="text" formControlName="amount" class="form-control" placeholder="Enter transfer anmount"/>
-                        </div>
-                    </div> 
-                    <button class="btn btn-block btn-primary mt-3" (click)="addMultipelTransferBenef()" style="width: 100%;">Validate</button>
-                </form>    
+                    <div class= "col-8">
+                        <select  class="form-control" style="text-align:center;" id="ccmonth" formControlName="idBeneficiary">
+                            <option disabled selected></option>
+                            <option *ngFor="let Beneficiary of myBeneficiaries"  value="{{Beneficiary.id}}">{{Beneficiary.firstName}} {{Beneficiary.lastName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" formControlName="amount" class="form-control" placeholder="Enter transfer anmount"/>
+                    </div>
+                </div> 
+                <button class="btn btn-block btn-primary mt-3" [disabled]="MultipelTransferBenefForm.invalid" (click)="addMultipelTransferBenef()" style="width: 100%;">Validate</button>
+            </form>    
+
+            <div *ngIf="AllMultipleTransBenefeciries.length!==0" class="mb-4">
+                <div class="d-flex" >
+                        
+                    <div class= "col-8">
+                        <label >
+                            <h5>Beneficiary</h5>
+                        </label>
+                    </div>
+                    
+                    <div class="col-4">
+                        <h5>Amount</h5>
+                    </div>
+                </div> 
+                <div class="d-flex" *ngFor="let MultipleTransBeneficiary of AllMultipleTransBenefeciries;let i =index">
+                        
+                    <div class= "col-8">
+                        <label >
+                            <h6>{{MultipleTransBeneficiary.beneficiaryName}}</h6>
+                        </label>
+                        
+                    </div>
+                    <div class="col-2">
+                        <span>{{MultipleTransBeneficiary.amount | balance}}</span>
+                    </div>
+                    <div class="col-2">
+                        <img (click)="deleteMultipelTransferBenef(i)" style="width:18px; height:18px" src="../../../assets/close1.png" alt="">
+                    </div>
+                </div> 
+            </div>
+
             <div class="form-group"> 
                 <label for="amount">
-                    <h6>Amount (<span style="color:red;">*</span>)</h6>
+                    <h6>Total Amount (<span style="color:red;">*</span>)</h6>
                </label>
                <div class="input-group"> 
-                   <input type="text"  name="amount" placeholder="Amount..." class="form-control " required>
+                   <input type="text" formControlName="totalAmount" name="amount" placeholder="Amount..." class="form-control " required>
                </div>
             </div>
             <div class="form-group"> 
@@ -60,7 +93,7 @@
     </div>   
 
      <div class="card-footer">
-        <button type="button" class="subscribe btn btn-color btn-block shadow-sm" style="width: 100%;"> 
+        <button type="button" (click)="createMultipTranser()" class="subscribe btn btn-color btn-block shadow-sm" style="width: 100%;"> 
             Confirm Payment 
         </button>
     </div>

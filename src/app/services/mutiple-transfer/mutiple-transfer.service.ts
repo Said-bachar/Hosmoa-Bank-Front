@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,7 +10,11 @@ export class MutipleTransferService {
 
   constructor(private http:HttpClient) { }
 
-  createMultipleTransfer(payload){
-    return this.http.post(`${environment.BASE_URL}client/api/multipletransfers/create`,payload)
+  createMultipleTransfer(payload):Observable<any>{
+    return this.http.post(`${environment.BASE_URL}/client/api/multipletransfers/create`,payload);
+  }
+  confirmationMultipleTransfer(id:number,payload:{keySecret:string}):Observable<any>{
+    console.log(id,payload)
+    return this.http.post(`${environment.BASE_URL}/client/api/multipletransfers/${id}/confirm`,payload);
   }
 }
