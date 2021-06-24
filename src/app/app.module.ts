@@ -31,6 +31,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 
 import { FormsModule } from '@angular/forms';
 import { MultipleTransferComponent } from './components/multiple-transfer/multiple-transfer.component';
+import { FormatDatePipe } from './pipes/format-date.pipe';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { MultipleTransferComponent } from './components/multiple-transfer/multip
     ChangeKeyComponent,
     ChangePasswordComponent,
     MultipleTransferComponent,
+    FormatDatePipe,
 
   ],
   imports: [

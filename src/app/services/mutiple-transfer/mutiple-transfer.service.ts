@@ -14,7 +14,6 @@ export class MutipleTransferService {
     return this.http.post(`${environment.BASE_URL}/client/api/multipletransfers/create`,payload);
   }
   confirmationMultipleTransfer(id:number,payload:{keySecret:string}):Observable<any>{
-    console.log(id,payload)
     return this.http.post(`${environment.BASE_URL}/client/api/multipletransfers/${id}/confirm`,payload);
   }
 }

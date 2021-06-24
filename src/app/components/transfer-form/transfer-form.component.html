@@ -1,8 +1,5 @@
 <div class="tab-content">
-    <a (click)="addTransferForm()" class="nav-link more-item my-2"> 
-        <i class="fa fa-plus-circle"></i> More 
-    </a><br>
-    <div id="transfer" class="tab-pane fade show active pt-3 mt-5" *ngFor="let transfer of transfers.controls;let i = index">
+    <div id="transfer" class="tab-pane fade show active pt-3 mt-3" *ngFor="let transfer of transfers.controls;let i = index">
         <div class="container mb-2" [formGroup]="transfers.controls[i]">
             <div class="x-btn" *ngIf="transfers.length>1" style="cursor: pointer"  (click)="deletecommandeform(i)"><img style="width:20px; height:20px" src="../../../assets/close1.png" alt=""></div>
             <div class="form-group mt-2"> 

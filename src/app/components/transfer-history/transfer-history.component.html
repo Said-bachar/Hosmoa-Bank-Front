@@ -15,7 +15,7 @@
                 <th scope="row">{{transfer.id}}</th>
                 <td>{{transfer.account.accountNumber}}</td>
                 <td>{{transfer.destAccount.accountNumber}}</td>
-                <td>{{transfer.dateDeVirement}}</td>
+                <td>{{transfer.dateDeVirement | formatDate}}</td>
                 <th scope="row">{{transfer.montant}}</th>
                 <td>{{transfer.status}}</td>
               </tr>

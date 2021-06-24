@@ -14,10 +14,12 @@
                     <input formControlName="email" ngModel class="input100" name="email" type="text" name="email" placeholder="Email" required 
                     [ngClass]="{
                         'invalide':
-                            loginForm.get('email').touched 
+                            (loginForm.get('email').touched 
                             && 
-                            loginForm.get('email').errors?.required
-                        }">
+                            loginForm.get('email').errors?.required)
+                            || loginError
+                        }"
+                        (ngModelChange)="changeErrorLogin(false)">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -52,7 +54,10 @@
                             loginForm.get('password').touched 
                             &&
                             loginForm.get('password').errors?.required)
+                        ||
+                        loginError
                         }"
+                    (ngModelChange)="changeErrorLogin(false)"
                     >
                     <span class="focus-input100"></span>
                     <span *ngIf="loginForm.get('password').touched 
@@ -78,13 +83,19 @@
                     </button>
                 </div>
 
-                <div class="text-center p-t-12">
+                <!-- <div class="text-center p-t-12">
                     <span class="txt1">
                         Forgot
                     </span>
                     <a class="txt2" href="#">
                         Username / Password?
                     </a>
+                </div> -->
+                <div class="error" *ngIf="loginError">
+                    <span>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    Email or password is incorrect !
                 </div>
             </form>
         </div>

@@ -12,10 +12,10 @@
             
             <div class="form-group mt-2 d-flex">
                 <div class="input-group mb-3">
-                    <input  (click)="show()" value="Select one of your benefeciaries" type="button" class="form-control btn-outline-primary"/>
+                    <input  (click)="show_hide()" value="Select one of your benefeciaries" type="button" class="form-control btn-outline-primary"/>
                 </div>
                 <div class="input-group mb-3">
-                    <input  value="Add new benefeciary" type="button" class="form-control btn-outline-warning" style="margin-left: 2%;"/>
+                    <input (click)="show_hide_AddBeneficiaryForm()" value="Add new benefeciary" type="button" class="form-control btn-outline-warning" style="margin-left: 2%;"/>
                 </div>
             </div>
 
@@ -36,6 +36,27 @@
                     </div>
                 </div> 
                 <button class="btn btn-block btn-primary mt-3" [disabled]="MultipelTransferBenefForm.invalid" (click)="addMultipelTransferBenef()" style="width: 100%;">Validate</button>
+            </form>
+            <form [formGroup]="BeneficiaryForm" class="mb-4" *ngIf="showAddBeneficiary">
+                <div class="col-12">
+                    <label >
+                        <h6>Enter benefeciary account number (<span style="color:red;">*</span>)</h6>
+                    </label> 
+                    <input type="text" formControlName="acountNumber" class="form-control" placeholder="Enter benefeciary account number..."/>
+                </div>
+                <div class="col-12">
+                    <label >
+                        <h6>Enter benefeciary first name (<span style="color:red;">*</span>)</h6>
+                    </label> 
+                    <input type="text" formControlName="firstName" class="form-control" placeholder="Enter benefeciary first name..."/>
+                </div>
+                <div class="col-12">
+                    <label >
+                        <h6>Enter benefeciary last name (<span style="color:red;">*</span>)</h6>
+                    </label> 
+                    <input type="text" formControlName="lastName" class="form-control" placeholder="Enter benefeciary last name..."/>
+                </div>
+                <button class="btn btn-block btn-primary mt-3" [disabled]="BeneficiaryForm.invalid" (click)="addBenefeciary()" style="width: 100%;">Validate</button>
             </form>    
 
             <div *ngIf="AllMultipleTransBenefeciries.length!==0" class="mb-4">
@@ -63,7 +84,7 @@
                         <span>{{MultipleTransBeneficiary.amount | balance}}</span>
                     </div>
                     <div class="col-2">
-                        <img (click)="deleteMultipelTransferBenef(i)" style="width:18px; height:18px" src="../../../assets/close1.png" alt="">
+                        <img (click)="deleteMultipelTransferBenef(i)" style="width:18px; height:18px;cursor: pointer;" src="../../../assets/close1.png" alt="">
                     </div>
                 </div> 
             </div>
@@ -73,17 +94,26 @@
                     <h6>Total Amount (<span style="color:red;">*</span>)</h6>
                </label>
                <div class="input-group"> 
-                   <input type="text" formControlName="totalAmount" name="amount" placeholder="Amount..." class="form-control " required>
+                   <input type="text" formControlName="totalAmount" name="amount" placeholder="Total amount..." class="form-control " required>
                </div>
+               <div class="error" *ngIf="
+                        MultipelTransferForm.get('totalAmount').touched 
+                        &&
+                        totalAmountVerfication!=+MultipelTransferForm.get('totalAmount').value">
+                <span>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+                Total amount is invalid !
             </div>
-            <div class="form-group"> 
+            </div>
+            <!-- <div class="form-group"> 
                 <label class="mt-4" for="secret">
                     <h6>Secret Key (<span style="color:red;">*</span>)</h6>
                 </label>
                <div class="input-group"> 
                    <input type="password" name="secret" placeholder="Secret Key..." class="form-control " required>
                </div>
-            </div>
+            </div> -->
 
         </div>   
         <div class="">
@@ -93,7 +123,13 @@
     </div>   
 
      <div class="card-footer">
-        <button type="button" (click)="createMultipTranser()" class="subscribe btn btn-color btn-block shadow-sm" style="width: 100%;"> 
+        <button type="button" [disabled]="MultipelTransferForm.invalid 
+        || 
+        totalAmountVerfication!=+MultipelTransferForm.get('totalAmount').value 
+        || 
+        MultipelTransferForm.get('totalAmount').value==0" 
+        
+        (click)="createMultipTranser()" class="subscribe btn btn-success btn-block shadow-sm" style="width: 100%;"> 
             Confirm Payment 
         </button>
     </div>

@@ -4,7 +4,7 @@
     <!-- For demo purpose -->
     <div class="row mb-4">
         <div class="col-6 mx-auto text-center">
-            <h1 class="display-6" style="color: #000; font-size: 35px; font-weight:bold">Hosmoa Bank Transfers</h1>
+            <h1 class="display-6" style="color: #fff; font-size: 35px; font-weight:bold">Hosmoa Bank Transfers</h1>
         </div>
     </div> <!-- End -->
     <div class="row">
@@ -15,7 +15,7 @@
                         <!-- Credit card form tabs -->
                         <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
                             <li class="nav-item" [ngClass]="{'nav-active': isActive==='T'}"><a routerLink="#" [ngClass]="{'active-item': isActive==='T'}" (click)="changeActive('T'); isShowed='T';" class="nav-link"> <i class="fa fa-credit-card mr-2"></i> Transfer Form </a> </li>
-                            <li class="nav-item" [ngClass]="{'nav-active': isActive==='M'}"> <a routerLink="#" [ngClass]="{'active-item': isActive==='M'}" (click)="changeActive('M'); isShowed='M';" class="nav-link "> <i class="fa fa-history mr-2"></i> Multiple Transfer</a> </li>
+                            <li class="nav-item" [ngClass]="{'nav-active': isActive==='M'}"> <a routerLink="#" [ngClass]="{'active-item': isActive==='M'}" (click)="changeActive('M'); isShowed='M';" class="nav-link "> <i class="fa fa-exchange mr-2"></i> Multiple Transfer</a> </li>
                             <li class="nav-item" [ngClass]="{'nav-active': isActive==='H'}"> <a routerLink="#" [ngClass]="{'active-item': isActive==='H'}" (click)="changeActive('H'); isShowed='H';" class="nav-link "> <i class="fa fa-history mr-2"></i> Transfer Track </a> </li>
                         </ul>
                     </div> <!-- End -->

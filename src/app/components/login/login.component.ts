@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-
+  loginError:boolean=false;
   constructor(private clientAuth:ClientAuthService, 
     private router:Router,
     private token:TokenService,
@@ -36,8 +36,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     .subscribe(res=>{
       this.handleResponse({id:res.id,token:res.token})
     },err=>{
-      console.log(err)
+      if(err.status===403){
+        this.changeErrorLogin(true)
+      }
     })
+  }
+  changeErrorLogin(value: boolean) {
+    console.log("...")
+    this.loginError=value;
   }
   handleResponse(data) {
     this.token.handle(data);

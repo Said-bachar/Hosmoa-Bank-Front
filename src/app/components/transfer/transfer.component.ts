@@ -20,7 +20,7 @@ export class TransferComponent implements OnInit ,OnDestroy{
   }
 
   ngOnInit(): void {
-     document.body.style.backgroundImage="url('../../../../assets/background.svg')";
+     document.body.style.backgroundImage="url('../../../../assets/welcome.jpg')";
      document.body.style.backgroundSize="cover";
      document.body.style.backgroundAttachment="fixed"
   }
