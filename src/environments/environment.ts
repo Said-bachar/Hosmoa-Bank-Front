@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BASE_URL: "https://hosmoa-bank.herokuapp.com/"
+  BASE_URL: "https://hosmoa-bank.herokuapp.com"
 };
 
 /*
